@@ -1,0 +1,357 @@
+C:\Program Files\Git>cd C:\Users\Админ\Documents\DZ27032025
+
+C:\Users\Админ\Documents\DZ27032025>git init
+Initialized empty Git repository in C:/Users/Админ/Documents/DZ27032025/.git/
+
+C:\Users\Админ\Documents\DZ27032025>git remote add dz21 https://github.com/Alex80-m/DZ24032025.git
+
+C:\Users\Админ\Documents\DZ27032025>git remote -v
+dz21    https://github.com/Alex80-m/DZ24032025.git (fetch)
+dz21    https://github.com/Alex80-m/DZ24032025.git (push)
+
+C:\Users\Админ\Documents\DZ27032025>git fetch dz21
+remote: Enumerating objects: 46, done.
+remote: Counting objects: 100% (46/46), done.
+remote: Compressing objects: 100% (25/25), done.
+remote: Total 46 (delta 20), reused 46 (delta 20), pack-reused 0 (from 0)
+Unpacking objects: 100% (46/46), 305.37 KiB | 652.00 KiB/s, done.
+From https://github.com/Alex80-m/DZ24032025
+ * [new branch]      master          -> dz21/master
+ * [new branch]      vetka_catalog   -> dz21/vetka_catalog
+ * [new branch]      vetka_checklist -> dz21/vetka_checklist
+ * [new branch]      vetka_testcase  -> dz21/vetka_testcase
+
+C:\Users\Админ\Documents\DZ27032025>git checkout -b master
+Switched to a new branch 'master'
+
+C:\Users\Админ\Documents\DZ27032025>git branch
+
+C:\Users\Админ\Documents\DZ27032025>git commit -m "commit1"
+On branch master
+
+Initial commit
+
+nothing to commit (create/copy files and use "git add" to track)
+
+C:\Users\Админ\Documents\DZ27032025>git add .
+
+C:\Users\Админ\Documents\DZ27032025>git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   skidki.docx
+
+
+C:\Users\Админ\Documents\DZ27032025>git commit -m "Добавил файл скидок"
+[master (root-commit) f26b8c3] Добавил файл скидок
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 skidki.docx
+
+C:\Users\Админ\Documents\DZ27032025>git branch vetka1
+
+C:\Users\Админ\Documents\DZ27032025>git branch
+* master
+  vetka1
+
+C:\Users\Админ\Documents\DZ27032025>git branch -a
+* master
+  vetka1
+  remotes/dz21/HEAD -> dz21/master
+  remotes/dz21/master
+  remotes/dz21/vetka_catalog
+  remotes/dz21/vetka_checklist
+  remotes/dz21/vetka_testcase
+
+C:\Users\Админ\Documents\DZ27032025>git checkout vetka1
+Switched to branch 'vetka1'
+
+C:\Users\Админ\Documents\DZ27032025>git commit -m "Добавил чек-лист скидок"
+On branch vetka1
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   skidki.docx
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        "\320\247\320\265\320\272-\320\273\320\270\321\201\321\202 \320\275\320\260 \321\201\321\202\321\200\320\260\320\275\320\270\321\206\321\203 \321\201\320\272\320\270\320\264\320\272\320\260.docx"
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+C:\Users\Админ\Documents\DZ27032025>git add .
+
+C:\Users\Админ\Documents\DZ27032025>git commit -m "Добавил чек-лист скидок"
+[vetka1 335641e] Добавил чек-лист скидок
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 "\320\247\320\265\320\272-\320\273\320\270\321\201\321\202 \320\275\320\260 \321\201\321\202\321\200\320\260\320\275\320\270\321\206\321\203 \321\201\320\272\320\270\320\264\320\272\320\260.docx"
+
+C:\Users\Админ\Documents\DZ27032025>git checkout master
+Switched to branch 'master'
+
+C:\Users\Админ\Documents\DZ27032025>git branch
+* master
+  vetka1
+
+C:\Users\Админ\Documents\DZ27032025>git checkout -b vetka2
+Switched to a new branch 'vetka2'
+
+C:\Users\Админ\Documents\DZ27032025>git branch
+  master
+  vetka1
+* vetka2
+
+C:\Users\Админ\Documents\DZ27032025>git add .
+
+C:\Users\Админ\Documents\DZ27032025>git commit -m "Добавил тест-кейс"
+[vetka2 1678813] Добавил тест-кейс
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 "\320\242\320\265\321\201\321\202-\320\272\320\265\320\271\321\201 \321\201\320\272\320\270\320\264\320\272\320\270.docx"
+
+C:\Users\Админ\Documents\DZ27032025>git add .
+
+C:\Users\Админ\Documents\DZ27032025>git commit -m "Изменил тест-кейс авториз"
+[vetka2 706ab30] Изменил тест-кейс авториз
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 "\320\247\320\265\320\272-\320\273\320\270\321\201\321\202 \320\260\320\262\321\202\320\276\321\200\320\270\320\267.docx"
+
+C:\Users\Админ\Documents\DZ27032025>git checkout -b vetka3
+Switched to a new branch 'vetka3'
+
+C:\Users\Админ\Documents\DZ27032025>git add .
+
+C:\Users\Админ\Documents\DZ27032025>git commit -m "Добавил ноутбук"
+[vetka3 d2d4c33] Добавил ноутбук
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 "\320\235\320\276\321\203\321\202\320\261\321\203\320\272 Apple.docx"
+ create mode 100644 "\320\235\320\276\321\203\321\202\320\261\321\203\320\272 Aser.docx"
+ create mode 100644 "\320\235\320\276\321\203\321\202\320\261\321\203\320\272 Dell.docx"
+
+C:\Users\Админ\Documents\DZ27032025>git add .
+
+C:\Users\Админ\Documents\DZ27032025>git commit -m "Добавил монитор"
+[vetka3 28fbfcb] Добавил монитор
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 "\320\234\320\276\320\275\320\270\321\202\320\276\321\200 Dell.docx"
+ create mode 100644 "\320\234\320\276\320\275\320\270\321\202\320\276\321\200 Sony.docx"
+ create mode 100644 "\320\234\320\276\320\275\320\270\321\202\320\276\321\200 Supra.docx"
+
+C:\Users\Админ\Documents\DZ27032025>git checkout master
+Switched to branch 'master'
+
+C:\Users\Админ\Documents\DZ27032025>git add .
+
+C:\Users\Админ\Documents\DZ27032025>git commit -m "Добавление страниц"
+[master 573baaa] Добавление страниц
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 "\320\222\320\260\320\272\320\260\320\275\321\201\320\270\320\270.docx"
+ create mode 100644 "\320\241\321\200\320\260\320\262\320\275\320\265\320\275\320\270\320\265.docx"
+ create mode 100644 "\320\242\320\265\321\205.\320\277\320\276\320\264\320\264\320\265\321\200\320\266\320\272\320\260.docx"
+
+C:\Users\Админ\Documents\DZ27032025>git checkout vetka2
+Switched to branch 'vetka2'
+
+C:\Users\Админ\Documents\DZ27032025>git marge vetka3 --no-edit
+git: 'marge' is not a git command. See 'git --help'.
+
+The most similar command is
+        merge
+
+C:\Users\Админ\Documents\DZ27032025>git merge vetka3 --no-edit
+Updating 706ab30..28fbfcb
+Fast-forward
+ ...6\320\275\320\270\321\202\320\276\321\200 Dell.docx" | Bin 0 -> 13702 bytes
+ ...6\320\275\320\270\321\202\320\276\321\200 Sony.docx" | Bin 0 -> 13677 bytes
+ ...\320\275\320\270\321\202\320\276\321\200 Supra.docx" | Bin 0 -> 13662 bytes
+ ...\321\203\321\202\320\261\321\203\320\272 Apple.docx" | Bin 0 -> 13560 bytes
+ ...6\321\203\321\202\320\261\321\203\320\272 Aser.docx" | Bin 0 -> 13539 bytes
+ ...6\321\203\321\202\320\261\321\203\320\272 Dell.docx" | Bin 0 -> 13665 bytes
+ 6 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 "\320\234\320\276\320\275\320\270\321\202\320\276\321\200 Dell.docx"
+ create mode 100644 "\320\234\320\276\320\275\320\270\321\202\320\276\321\200 Sony.docx"
+ create mode 100644 "\320\234\320\276\320\275\320\270\321\202\320\276\321\200 Supra.docx"
+ create mode 100644 "\320\235\320\276\321\203\321\202\320\261\321\203\320\272 Apple.docx"
+ create mode 100644 "\320\235\320\276\321\203\321\202\320\261\321\203\320\272 Aser.docx"
+ create mode 100644 "\320\235\320\276\321\203\321\202\320\261\321\203\320\272 Dell.docx"
+
+C:\Users\Админ\Documents\DZ27032025>git checkout master
+Switched to branch 'master'
+
+C:\Users\Админ\Documents\DZ27032025>git merge vetka2 --no-edit
+Merge made by the 'ort' strategy.
+ ...6\320\275\320\270\321\202\320\276\321\200 Dell.docx" | Bin 0 -> 13702 bytes
+ ...6\320\275\320\270\321\202\320\276\321\200 Sony.docx" | Bin 0 -> 13677 bytes
+ ...\320\275\320\270\321\202\320\276\321\200 Supra.docx" | Bin 0 -> 13662 bytes
+ ...\321\203\321\202\320\261\321\203\320\272 Apple.docx" | Bin 0 -> 13560 bytes
+ ...6\321\203\321\202\320\261\321\203\320\272 Aser.docx" | Bin 0 -> 13539 bytes
+ ...6\321\203\321\202\320\261\321\203\320\272 Dell.docx" | Bin 0 -> 13665 bytes
+ ...21\201\320\272\320\270\320\264\320\272\320\270.docx" | Bin 0 -> 13479 bytes
+ ...20\262\321\202\320\276\321\200\320\270\320\267.docx" | Bin 0 -> 16753 bytes
+ 8 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 "\320\234\320\276\320\275\320\270\321\202\320\276\321\200 Dell.docx"
+ create mode 100644 "\320\234\320\276\320\275\320\270\321\202\320\276\321\200 Sony.docx"
+ create mode 100644 "\320\234\320\276\320\275\320\270\321\202\320\276\321\200 Supra.docx"
+ create mode 100644 "\320\235\320\276\321\203\321\202\320\261\321\203\320\272 Apple.docx"
+ create mode 100644 "\320\235\320\276\321\203\321\202\320\261\321\203\320\272 Aser.docx"
+ create mode 100644 "\320\235\320\276\321\203\321\202\320\261\321\203\320\272 Dell.docx"
+ create mode 100644 "\320\242\320\265\321\201\321\202-\320\272\320\265\320\271\321\201 \321\201\320\272\320\270\320\264\320\272\320\270.docx"
+ create mode 100644 "\320\247\320\265\320\272-\320\273\320\270\321\201\321\202 \320\260\320\262\321\202\320\276\321\200\320\270\320\267.docx"
+
+C:\Users\Админ\Documents\DZ27032025>git merge vetka1 --no-edit
+Merge made by the 'ort' strategy.
+ skidki.docx                                             | Bin 0 -> 13531 bytes
+ ...21\201\320\272\320\270\320\264\320\272\320\260.docx" | Bin 0 -> 13480 bytes
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 "\320\247\320\265\320\272-\320\273\320\270\321\201\321\202 \320\275\320\260 \321\201\321\202\321\200\320\260\320\275\320\270\321\206\321\203 \321\201\320\272\320\270\320\264\320\272\320\260.docx"
+
+C:\Users\Админ\Documents\DZ27032025>git log --graph --oneline --decorate
+*   1607f6c (HEAD -> master) Merge branch 'vetka1'
+|\
+| * 335641e (vetka1) Добавил чек-лист скидок
+* |   66c0241 Merge branch 'vetka2'
+|\ \
+| * | 28fbfcb (vetka3, vetka2) Добавил монитор
+| * | d2d4c33 Добавил ноутбук
+| * | 706ab30 Изменил тест-кейс авториз
+| * | 1678813 Добавил тест-кейс
+| |/
+* / 573baaa Добавление страниц
+|/
+* f26b8c3 Добавил файл скидок
+
+C:\Users\Админ\Documents\DZ27032025>git reset --hard HEAD~1
+HEAD is now at 66c0241 Merge branch 'vetka2'
+
+C:\Users\Админ\Documents\DZ27032025>git log --graph --oneline --decorate
+*   66c0241 (HEAD -> master) Merge branch 'vetka2'
+|\
+| * 28fbfcb (vetka3, vetka2) Добавил монитор
+| * d2d4c33 Добавил ноутбук
+| * 706ab30 Изменил тест-кейс авториз
+| * 1678813 Добавил тест-кейс
+* | 573baaa Добавление страниц
+|/
+* f26b8c3 Добавил файл скидок
+
+C:\Users\Админ\Documents\DZ27032025>git merge vetka1 --no-edit
+Merge made by the 'ort' strategy.
+ skidki.docx                                             | Bin 0 -> 13531 bytes
+ ...21\201\320\272\320\270\320\264\320\272\320\260.docx" | Bin 0 -> 13480 bytes
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 "\320\247\320\265\320\272-\320\273\320\270\321\201\321\202 \320\275\320\260 \321\201\321\202\321\200\320\260\320\275\320\270\321\206\321\203 \321\201\320\272\320\270\320\264\320\272\320\260.docx"
+
+C:\Users\Админ\Documents\DZ27032025>git log --graph --oneline --decorate
+*   1ea7a65 (HEAD -> master) Merge branch 'vetka1'
+|\
+| * 335641e (vetka1) Добавил чек-лист скидок
+* |   66c0241 Merge branch 'vetka2'
+|\ \
+| * | 28fbfcb (vetka3, vetka2) Добавил монитор
+| * | d2d4c33 Добавил ноутбук
+| * | 706ab30 Изменил тест-кейс авториз
+| * | 1678813 Добавил тест-кейс
+| |/
+* / 573baaa Добавление страниц
+|/
+* f26b8c3 Добавил файл скидок
+
+C:\Users\Админ\Documents\DZ27032025>git push --all origin
+fatal: 'origin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+C:\Users\Админ\Documents\DZ27032025>git remote -v
+dz21    https://github.com/Alex80-m/DZ24032025.git (fetch)
+dz21    https://github.com/Alex80-m/DZ24032025.git (push)
+
+C:\Users\Админ\Documents\DZ27032025>git remote rename dz21 origin
+Renaming remote references: 100% (6/6), done.
+
+C:\Users\Админ\Documents\DZ27032025>git push -u origin --all
+Enumerating objects: 23, done.
+Counting objects: 100% (23/23), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (21/21), done.
+Writing objects: 100% (23/23), 72.88 KiB | 5.61 MiB/s, done.
+Total 23 (delta 11), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (11/11), done.
+To https://github.com/Alex80-m/DZ24032025.git
+ * [new branch]      vetka1 -> vetka1
+ * [new branch]      vetka2 -> vetka2
+ * [new branch]      vetka3 -> vetka3
+ ! [rejected]        master -> master (non-fast-forward)
+branch 'vetka1' set up to track 'origin/vetka1'.
+branch 'vetka2' set up to track 'origin/vetka2'.
+branch 'vetka3' set up to track 'origin/vetka3'.
+error: failed to push some refs to 'https://github.com/Alex80-m/DZ24032025.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. If you want to integrate the remote changes,
+hint: use 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+C:\Users\Админ\Documents\DZ27032025>git pull origin master
+From https://github.com/Alex80-m/DZ24032025
+ * branch            master     -> FETCH_HEAD
+fatal: refusing to merge unrelated histories
+
+C:\Users\Админ\Documents\DZ27032025>git pull origin master --allow-unrelated-histories
+From https://github.com/Alex80-m/DZ24032025
+ * branch            master     -> FETCH_HEAD
+Merge made by the 'ort' strategy.
+ avtoriz.user.docx      |   0
+ catalog.docx           |   0
+ cecklist1.docx         | Bin 0 -> 17445 bytes
+ cecklist2.docx         | Bin 0 -> 17007 bytes
+ cecklist3.docx         | Bin 0 -> 20013 bytes
+ complekt_pk.docx       |   0
+ diz_avtoriz.png        | Bin 0 -> 16508 bytes
+ glav.str.docx          | Bin 0 -> 13511 bytes
+ oformlenie_zakaza.docx |   0
+ pk_nout_perefer.docx   |   0
+ registr.user.docx      | Bin 0 -> 13532 bytes
+ setevoe_oborud.docx    |   0
+ smartfon_foto.docx     |   0
+ tekhnika_byt.docx      |   0
+ test_case1.docx        | Bin 0 -> 18140 bytes
+ test_case10.docx       | Bin 0 -> 19726 bytes
+ test_case2.docx        | Bin 0 -> 36524 bytes
+ test_case3.docx        | Bin 0 -> 18373 bytes
+ test_case4.docx        | Bin 0 -> 31713 bytes
+ test_case5.docx        | Bin 0 -> 18305 bytes
+ test_case6.docx        | Bin 0 -> 36764 bytes
+ test_case7.docx        | Bin 0 -> 2224770 bytes
+ test_case8.docx        | Bin 0 -> 36709 bytes
+ test_case9.docx        | Bin 0 -> 18493 bytes
+ tv_consol_audio.docx   |   0
+ 25 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 avtoriz.user.docx
+ create mode 100644 catalog.docx
+ create mode 100644 cecklist1.docx
+ create mode 100644 cecklist2.docx
+ create mode 100644 cecklist3.docx
+ create mode 100644 complekt_pk.docx
+ create mode 100644 diz_avtoriz.png
+ create mode 100644 glav.str.docx
+ create mode 100644 oformlenie_zakaza.docx
+ create mode 100644 pk_nout_perefer.docx
+ create mode 100644 registr.user.docx
+ create mode 100644 setevoe_oborud.docx
+ create mode 100644 smartfon_foto.docx
+ create mode 100644 tekhnika_byt.docx
+ create mode 100644 test_case1.docx
+ create mode 100644 test_case10.docx
+ create mode 100644 test_case2.docx
+ create mode 100644 test_case3.docx
+ create mode 100644 test_case4.docx
+ create mode 100644 test_case5.docx
+ create mode 100644 test_case6.docx
+ create mode 100644 test_case7.docx
+ create mode 100644 test_case8.docx
+ create mode 100644 test_case9.docx
+ create mode 100644 tv_consol_audio.docx
+
+C:\Users\Админ\Documents\DZ27032025>

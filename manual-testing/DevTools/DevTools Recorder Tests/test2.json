@@ -1,0 +1,128 @@
+{
+    "title": "test2",
+    "steps": [
+        {
+            "type": "setViewport",
+            "width": 536,
+            "height": 770,
+            "deviceScaleFactor": 1,
+            "isMobile": false,
+            "hasTouch": false,
+            "isLandscape": false
+        },
+        {
+            "type": "navigate",
+            "url": "https://journal.top-academy.ru/ru/auth/login/index",
+            "assertedEvents": [
+                {
+                    "type": "navigation",
+                    "url": "https://journal.top-academy.ru/ru/auth/login/index",
+                    "title": "Journal"
+                }
+            ]
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Логин"
+                ],
+                [
+                    "#username"
+                ],
+                [
+                    "xpath///*[@id=\"username\"]"
+                ]
+            ],
+            "offsetY": 15.703125,
+            "offsetX": 126
+        },
+        {
+            "type": "change",
+            "value": "Moise_bp17",
+            "selectors": [
+                [
+                    "aria/Логин"
+                ],
+                [
+                    "#username"
+                ],
+                [
+                    "xpath///*[@id=\"username\"]"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Пароль"
+                ],
+                [
+                    "#password"
+                ],
+                [
+                    "xpath///*[@id=\"password\"]"
+                ]
+            ],
+            "offsetY": 21.703125,
+            "offsetX": 49
+        },
+        {
+            "type": "change",
+            "value": "N1X885zS ",
+            "selectors": [
+                [
+                    "aria/Пароль"
+                ],
+                [
+                    "#password"
+                ],
+                [
+                    "xpath///*[@id=\"password\"]"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Вход"
+                ],
+                [
+                    "#\\31  > form > button"
+                ],
+                [
+                    "xpath///*[@id=\"1\"]/form/button"
+                ],
+                [
+                    "text/Вход"
+                ]
+            ],
+            "offsetY": 18.703125,
+            "offsetX": 18.984375
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "body > mystat > ng-component > ng-component > div > div.content > div.wrapper > ng-component > div > div > div:nth-child(1) > div > div > div > div.homeworks-content > div.count-holder.items > div:nth-child(1) > div:nth-child(2)"
+                ],
+                [
+                    "xpath//html/body/mystat/ng-component/ng-component/div/div[2]/div[2]/ng-component/div/div/div[1]/div/div/div/div[2]/div[2]/div[1]/div[2]"
+                ],
+                [
+                    "text/0Проверено"
+                ]
+            ],
+            "offsetY": 25,
+            "offsetX": -0.5
+        }
+    ]
+}

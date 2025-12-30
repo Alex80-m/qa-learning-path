@@ -1,0 +1,111 @@
+{
+    "title": "test9",
+    "steps": [
+        {
+            "type": "setViewport",
+            "width": 536,
+            "height": 770,
+            "deviceScaleFactor": 1,
+            "isMobile": false,
+            "hasTouch": false,
+            "isLandscape": false
+        },
+        {
+            "type": "navigate",
+            "url": "https://journal.top-academy.ru/ru/auth/login/index",
+            "assertedEvents": [
+                {
+                    "type": "navigation",
+                    "url": "https://journal.top-academy.ru/ru/auth/login/index",
+                    "title": "Journal"
+                }
+            ]
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Логин"
+                ],
+                [
+                    "#username"
+                ],
+                [
+                    "xpath///*[@id=\"username\"]"
+                ]
+            ],
+            "offsetY": 4.703125,
+            "offsetX": 53
+        },
+        {
+            "type": "change",
+            "value": "Ьщшыу_ик17",
+            "selectors": [
+                [
+                    "aria/Логин"
+                ],
+                [
+                    "#username"
+                ],
+                [
+                    "xpath///*[@id=\"username\"]"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Пароль"
+                ],
+                [
+                    "#password"
+                ],
+                [
+                    "xpath///*[@id=\"password\"]"
+                ]
+            ],
+            "offsetY": 14.703125,
+            "offsetX": 73
+        },
+        {
+            "type": "change",
+            "value": "Т1Ч885яЫ",
+            "selectors": [
+                [
+                    "aria/Пароль"
+                ],
+                [
+                    "#password"
+                ],
+                [
+                    "xpath///*[@id=\"password\"]"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Вход"
+                ],
+                [
+                    "#\\31  > form > button"
+                ],
+                [
+                    "xpath///*[@id=\"1\"]/form/button"
+                ],
+                [
+                    "text/Вход"
+                ]
+            ],
+            "offsetY": 22.703125,
+            "offsetX": 44.984375
+        }
+    ]
+}

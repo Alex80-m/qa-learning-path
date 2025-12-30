@@ -1,0 +1,99 @@
+select *
+from Flights
+where departure_date between '20230901' and '20230906' (дату в формате 2023-09-01 не выводит данные)
+ 
+select *
+from Tickets
+where price between '100' and '220'
+ 
+select *
+from Passengers
+where birthdate between '1980-12-31' and '2000-01-01'
+ 
+select *
+from Flights
+where arrival_date between '20230905 12:00:00.000' and '20230905 18:00:00.000'(дату в формате 2023-09-01 не выводит данные)
+ 
+select *
+from Tickets
+where seat_number between 'A1' and 'C3'
+ 
+select *
+from Flights
+where origin in ('Moscow', 'London', 'New York')
+ 
+select *
+from Passengers
+where last_name in ('Miller', 'Williams', 'Davis')
+ 
+select *
+from Tickets
+where class  in ('Economy', 'Business')
+ 
+select *
+from Flights
+where destination in ('London', 'Sydney', 'New York')
+ 
+select *
+from Passengers
+where passenger_id in (301, 302, 304, 305)
+ 
+select *
+from Flights
+order by departure_date asc
+ 
+select *
+from Passengers
+order by last_name asc
+ 
+select *
+from Tickets
+order by price desc
+
+select *
+from Flights
+order by destination, departure_date 
+
+select *
+from Passengers
+order by birthdate asc
+
+select *
+from Passengers
+where last_name like 'M%'
+
+select *
+from Flights
+where destination like '%don'
+
+select *
+from Passengers
+where first_name like '%a'
+
+select *
+from Tickets
+where seat_number like'%1%'
+
+select *
+from Flights
+where flight_number like'RS%'
+
+select *
+from Passengers
+where first_name like '______'
+
+select *
+from Passengers
+where first_name like '%mm%'
+
+select *
+from Flights
+where origin not like 'L%'
+
+select *
+from Tickets
+where seat_number like'%A%'
+
+select *
+from Passengers
+where last_name like '%son'

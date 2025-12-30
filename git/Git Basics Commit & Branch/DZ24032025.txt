@@ -1,0 +1,314 @@
+
+C:\Program Files\Git>cd C:\Users\Админ\Documents\DZ24032025
+
+C:\Users\Админ\Documents\DZ24032025>git init
+Initialized empty Git repository in C:/Users/Админ/Documents/DZ24032025/.git/
+
+C:\Users\Админ\Documents\DZ24032025>git add .
+
+C:\Users\Админ\Documents\DZ24032025>git commit -m "commit1"
+[master (root-commit) 6c090bb] commit1
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 avtoriz.user.docx
+ create mode 100644 glav.str.docx
+ create mode 100644 registr.user.docx
+
+C:\Users\Админ\Documents\DZ24032025>git status
+On branch master
+nothing to commit, working tree clean
+
+C:\Users\Админ\Documents\DZ24032025>git log
+commit 6c090bb69e036a30b1207487fc0c27be48f7fc3d (HEAD -> master)
+Author: LAPTOP-2QT3LLVP\Админ <a.mois80@yandex.ru>
+Date:   Fri Mar 28 11:21:45 2025 +0300
+
+    commit1
+
+C:\Users\Админ\Documents\DZ24032025>git branch vetka_testcase
+
+C:\Users\Админ\Documents\DZ24032025>git branch
+* master
+  vetka_testcase
+
+C:\Users\Админ\Documents\DZ24032025>git add .
+
+C:\Users\Админ\Documents\DZ24032025>git commit -m "commit2"
+[master 8db59d5] commit2
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 catalog.docx
+ create mode 100644 diz_avtoriz.png
+
+C:\Users\Админ\Documents\DZ24032025>git checkout vetka_testcase
+Switched to branch 'vetka_testcase'
+
+C:\Users\Админ\Documents\DZ24032025>git branch
+  master
+* vetka_testcase
+
+C:\Users\Админ\Documents\DZ24032025>git add .
+
+C:\Users\Админ\Documents\DZ24032025>git commit -m "commit3"
+[vetka_testcase 759604f] commit3
+ 4 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test_case1.docx
+ create mode 100644 test_case2.docx
+ create mode 100644 test_case3.docx
+ create mode 100644 test_case4.docx
+
+C:\Users\Админ\Documents\DZ24032025>git branch vetka_checklist
+
+C:\Users\Админ\Documents\DZ24032025>git add .
+
+C:\Users\Админ\Documents\DZ24032025>git commit -m "commit_check"
+[vetka_testcase 6d1fb82] commit_check
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 "\320\247\320\265\320\272-\320\273\320\270\321\201\321\202 \320\264\320\273\321\217 \321\202\320\265\321\201\321\202\320\270\321\200\320\276\320\262\320\260\320\275\320\270\321\217 \321\204\320\276\321\200\320\274\321\213 \320\260\320\262\321\202\320\276\321\200\320\270\320\267\320\260\321\206\320\270\320\270 \342\200\224 \320\272\320\276\320\277\320\270\321\217.docx"
+
+C:\Users\Админ\Documents\DZ24032025>git branch
+  master
+  vetka_checklist
+* vetka_testcase
+
+C:\Users\Админ\Documents\DZ24032025>git add .
+
+C:\Users\Админ\Documents\DZ24032025>git commit -m "commit4"
+[vetka_testcase 278c90a] commit4
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ delete mode 100644 "\320\247\320\265\320\272-\320\273\320\270\321\201\321\202 \320\264\320\273\321\217 \321\202\320\265\321\201\321\202\320\270\321\200\320\276\320\262\320\260\320\275\320\270\321\217 \321\204\320\276\321\200\320\274\321\213 \320\260\320\262\321\202\320\276\321\200\320\270\320\267\320\260\321\206\320\270\320\270 \342\200\224 \320\272\320\276\320\277\320\270\321\217.docx"
+
+C:\Users\Админ\Documents\DZ24032025>git checkout vetka_checklist
+Switched to branch 'vetka_checklist'
+
+C:\Users\Админ\Documents\DZ24032025>git branch
+  master
+* vetka_checklist
+  vetka_testcase
+
+C:\Users\Админ\Documents\DZ24032025>git add .
+
+C:\Users\Админ\Documents\DZ24032025>git checkout vetka_checklist1
+error: pathspec 'vetka_checklist1' did not match any file(s) known to git
+
+C:\Users\Админ\Documents\DZ24032025>git commit -m "commit_check1"
+[vetka_checklist 18a676e] commit_check1
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 cecklist1.docx
+
+C:\Users\Админ\Documents\DZ24032025>git checkout vetka_testcase
+Switched to branch 'vetka_testcase'
+
+C:\Users\Админ\Documents\DZ24032025>git branch
+  master
+  vetka_checklist
+* vetka_testcase
+
+C:\Users\Админ\Documents\DZ24032025>git add .
+
+C:\Users\Админ\Documents\DZ24032025>git commit -m "commit_case2"
+[vetka_testcase 9942912] commit_case2
+ 4 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test_case5.docx
+ create mode 100644 test_case6.docx
+ create mode 100644 test_case7.docx
+ create mode 100644 test_case8.docx
+
+C:\Users\Админ\Documents\DZ24032025>git add .
+
+C:\Users\Админ\Documents\DZ24032025>git commit -m "commit_case3"
+[vetka_testcase 1fe4bd7] commit_case3
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test_case9.docx
+
+C:\Users\Админ\Documents\DZ24032025>git checkout vetka_checklist
+Switched to branch 'vetka_checklist'
+
+C:\Users\Админ\Documents\DZ24032025>git branch
+  master
+* vetka_checklist
+  vetka_testcase
+
+C:\Users\Админ\Documents\DZ24032025>git add .
+
+C:\Users\Админ\Documents\DZ24032025>git commit -m "commit_check2"
+[vetka_checklist f03a7c5] commit_check2
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 cecklist2.docx
+ create mode 100644 test_case10.docx
+
+C:\Users\Админ\Documents\DZ24032025>git add .
+
+C:\Users\Админ\Documents\DZ24032025>git commit -m "commit_check3"
+[vetka_checklist be1e500] commit_check3
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 cecklist3.docx
+
+C:\Users\Админ\Documents\DZ24032025>git checkout master
+Switched to branch 'master'
+
+C:\Users\Админ\Documents\DZ24032025>git branch vetka_catalog
+
+C:\Users\Админ\Documents\DZ24032025>git checkout vetka_catalog
+Switched to branch 'vetka_catalog'
+
+C:\Users\Админ\Documents\DZ24032025>git add .
+
+C:\Users\Админ\Documents\DZ24032025>git commit -m "commit_catalog"
+[vetka_catalog 45ef5fd] commit_catalog
+ 6 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 complekt_pk.docx
+ create mode 100644 pk_nout_perefer.docx
+ create mode 100644 setevoe_oborud.docx
+ create mode 100644 smartfon_foto.docx
+ create mode 100644 tekhnika_byt.docx
+ create mode 100644 tv_consol_audio.docx
+
+C:\Users\Админ\Documents\DZ24032025>git checkout master
+Switched to branch 'master'
+
+C:\Users\Админ\Documents\DZ24032025>git branch
+* master
+  vetka_catalog
+  vetka_checklist
+  vetka_testcase
+
+C:\Users\Админ\Documents\DZ24032025>git add .
+
+C:\Users\Админ\Documents\DZ24032025>git commit -m "commit_zakaz"
+[master 2a63444] commit_zakaz
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 oformlenie_zakaza.docx
+
+C:\Users\Админ\Documents\DZ24032025>git merge vetka_catalog
+Merge made by the 'ort' strategy.
+ complekt_pk.docx     | 0
+ pk_nout_perefer.docx | 0
+ setevoe_oborud.docx  | 0
+ smartfon_foto.docx   | 0
+ tekhnika_byt.docx    | 0
+ tv_consol_audio.docx | 0
+ 6 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 complekt_pk.docx
+ create mode 100644 pk_nout_perefer.docx
+ create mode 100644 setevoe_oborud.docx
+ create mode 100644 smartfon_foto.docx
+ create mode 100644 tekhnika_byt.docx
+ create mode 100644 tv_consol_audio.docx
+
+C:\Users\Админ\Documents\DZ24032025>~                                                                   .git/MERGE_MSG[+] [unix] (12:20 28/03/2025)                6,0-1 AllType  :qa!  and press <Ent...on all changes and exit Vim
+
+C:\Users\Админ\Documents\DZ24032025>git status
+On branch master
+nothing to commit, working tree clean
+
+C:\Users\Админ\Documents\DZ24032025>git branch
+* master
+  vetka_catalog
+  vetka_checklist
+  vetka_testcase
+
+C:\Users\Админ\Documents\DZ24032025>git merge vetka_checklist --no-edit
+Merge made by the 'ort' strategy.
+ cecklist1.docx   | Bin 0 -> 17445 bytes
+ cecklist2.docx   | Bin 0 -> 17007 bytes
+ cecklist3.docx   | Bin 0 -> 20013 bytes
+ test_case1.docx  | Bin 0 -> 18140 bytes
+ test_case10.docx | Bin 0 -> 19726 bytes
+ test_case2.docx  | Bin 0 -> 36524 bytes
+ test_case3.docx  | Bin 0 -> 18373 bytes
+ test_case4.docx  | Bin 0 -> 31713 bytes
+ 8 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 cecklist1.docx
+ create mode 100644 cecklist2.docx
+ create mode 100644 cecklist3.docx
+ create mode 100644 test_case1.docx
+ create mode 100644 test_case10.docx
+ create mode 100644 test_case2.docx
+ create mode 100644 test_case3.docx
+ create mode 100644 test_case4.docx
+
+C:\Users\Админ\Documents\DZ24032025>git merge vetka_testcase --no-edit
+Merge made by the 'ort' strategy.
+ test_case5.docx | Bin 0 -> 18305 bytes
+ test_case6.docx | Bin 0 -> 36764 bytes
+ test_case7.docx | Bin 0 -> 2224770 bytes
+ test_case8.docx | Bin 0 -> 36709 bytes
+ test_case9.docx | Bin 0 -> 18493 bytes
+ 5 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test_case5.docx
+ create mode 100644 test_case6.docx
+ create mode 100644 test_case7.docx
+ create mode 100644 test_case8.docx
+ create mode 100644 test_case9.docx
+
+C:\Users\Админ\Documents\DZ24032025>git add .
+
+C:\Users\Админ\Documents\DZ24032025>git commit -m "commit_sliynie"
+On branch master
+nothing to commit, working tree clean
+
+C:\Users\Админ\Documents\DZ24032025>git status
+On branch master
+nothing to commit, working tree clean
+
+C:\Users\Админ\Documents\DZ24032025>git log
+commit 096021ea62a593308e7b65ba7a7c51532f35d635 (HEAD -> master)
+Merge: baf669c 1fe4bd7
+Author: LAPTOP-2QT3LLVP\Админ <a.mois80@yandex.ru>
+Date:   Fri Mar 28 12:48:45 2025 +0300
+
+    Merge branch 'vetka_testcase'
+
+commit baf669c8739f14e0fc1527e3c62e4ca52419c9d2
+Merge: cf399ec be1e500
+Author: LAPTOP-2QT3LLVP\Админ <a.mois80@yandex.ru>
+Date:   Fri Mar 28 12:46:22 2025 +0300
+
+    Merge branch 'vetka_checklist'
+
+commit cf399eca07e41c38da4a343c825eaff5071fab79
+Merge: 2a63444 45ef5fd
+Author: LAPTOP-2QT3LLVP\Админ <a.mois80@yandex.ru>
+Date:   Fri Mar 28 12:20:22 2025 +0300
+
+    Merge branch 'vetka_catalog'
+    marge_vetca_catalog
+
+commit 2a6344437f814f32823f4860f63ac44049c896b9
+Author: LAPTOP-2QT3LLVP\Админ <a.mois80@yandex.ru>
+Date:   Fri Mar 28 12:06:12 2025 +0300
+
+    commit_zakaz
+
+commit 45ef5fd4d83bd4350e5e9578611d80606cac2518 (vetka_catalog)
+Author: LAPTOP-2QT3LLVP\Админ <a.mois80@yandex.ru>
+Date:   Fri Mar 28 12:04:07 2025 +0300
+
+    commit_catalog
+
+:
+C:\Users\Админ\Documents\DZ24032025>git log --graph --oneline --decorate
+*   096021e (HEAD -> master) Merge branch 'vetka_testcase'
+|\
+| * 1fe4bd7 (vetka_testcase) commit_case3
+| * 9942912 commit_case2
+| * 278c90a commit4
+| * 6d1fb82 commit_check
+* |   baf669c Merge branch 'vetka_checklist'
+|\ \
+| * | be1e500 (vetka_checklist) commit_check3
+| * | f03a7c5 commit_check2
+| * | 18a676e commit_check1
+| |/
+| * 759604f commit3
+* |   cf399ec Merge branch 'vetka_catalog' marge_vetca_catalog
+|\ \
+| * | 45ef5fd (vetka_catalog) commit_catalog
+* | | 2a63444 commit_zakaz
+|/ /
+* / 8db59d5 commit2
+|/
+* 6c090bb commit1
+
+C:\Users\Админ\Documents\DZ24032025>
+
+

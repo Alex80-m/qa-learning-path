@@ -1,0 +1,14 @@
+CREATE TABLE Products (
+    id INT PRIMARY KEY,
+    tovar VARCHAR(100),
+    category VARCHAR(50),
+    price DECIMAL(10,2),
+    v_nalichii INT,
+    proizvoditel VARCHAR(50)
+);
+INSERT INTO Products VALUES
+(101, 'Смартфон Galaxy S23', 'Смартфоны', 79990.00, 25, 'Samsung'),
+(102, 'Ноутбук MacBook Air M2', 'Ноутбуки', 109990.00, 15, 'Apple'),
+(103, 'Наушники Sony WH-1000XM5', 'Наушники', 29990.00, 40, 'Sony'),
+(104, 'Умные часы Mi Band 7', 'Гаджеты', 3990.00, 100, 'Xiaomi'),
+(105, 'Телевизор LG OLED C2', 'Телевизоры', 129990.00, 8, 'LG');

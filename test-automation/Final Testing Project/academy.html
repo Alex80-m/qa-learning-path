@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Academy Test Site</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        header { background: #0073e6; color: white; padding: 10px 20px; }
+        nav a { color: white; margin-right: 15px; text-decoration: none; }
+        main { padding: 20px; }
+        section { margin-bottom: 30px; }
+        input, button { padding: 5px; margin: 5px 0; }
+        .course { border: 1px solid #ccc; padding: 10px; margin: 10px 0; }
+        #cart { border-top: 1px solid #ccc; padding-top: 10px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Top Academy Test Site</h1>
+    <nav>
+        <a href="#register">Регистрация</a>
+        <a href="#login">Вход</a>
+        <a href="#courses">Курсы</a>
+        <a href="#profile">Личный кабинет</a>
+    </nav>
+</header>
+
+<main>
+
+    <!-- Регистрация -->
+    <section id="register">
+        <h2>Регистрация</h2>
+        <form id="registerForm">
+            <label>Email: <input type="email" id="regEmail" required></label><br>
+            <label>Пароль: <input type="password" id="regPassword" required></label><br>
+            <button type="submit">Зарегистрироваться</button>
+        </form>
+        <p id="regMessage"></p>
+    </section>
+
+    <!-- Вход -->
+    <section id="login">
+        <h2>Вход</h2>
+        <form id="loginForm">
+            <label>Email: <input type="email" id="loginEmail" required></label><br>
+            <label>Пароль: <input type="password" id="loginPassword" required></label><br>
+            <button type="submit">Войти</button>
+        </form>
+        <p id="loginMessage"></p>
+    </section>
+
+    <!-- Каталог курсов -->
+    <section id="courses">
+        <h2>Курсы</h2>
+        <div class="course" data-id="1" data-price="1000">
+            <h3>Курс по Python</h3>
+            <p>Цена: 1000 ₽</p>
+            <button class="buyBtn">Купить</button>
+        </div>
+        <div class="course" data-id="2" data-price="1500">
+            <h3>Курс по JavaScript</h3>
+            <p>Цена: 1500 ₽</p>
+            <button class="buyBtn">Купить</button>
+        </div>
+        <div class="course" data-id="3" data-price="2000">
+            <h3>Курс по HTML/CSS</h3>
+            <p>Цена: 2000 ₽</p>
+            <button class="buyBtn">Купить</button>
+        </div>
+
+        <div id="cart">
+            <h3>Корзина</h3>
+            <ul id="cartList"></ul>
+            <p>Итого: <span id="totalPrice">0</span> ₽</p>
+            <button id="checkoutBtn">Оформить заказ</button>
+            <p id="checkoutMessage"></p>
+        </div>
+    </section>
+
+    <!-- Личный кабинет -->
+    <section id="profile">
+        <h2>Личный кабинет</h2>
+        <p id="profileInfo">Пожалуйста, войдите, чтобы увидеть информацию.</p>
+    </section>
+
+</main>
+
+<script>
+    // Хранилище пользователей и заказов
+    const users = [];
+    const orders = [];
+    let currentUser = null;
+    const cart = [];
+
+    // Регистрация
+    document.getElementById('registerForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const email = document.getElementById('regEmail').value;
+        const password = document.getElementById('regPassword').value;
+        if (users.find(u => u.email === email)) {
+            document.getElementById('regMessage').innerText = 'Пользователь уже существует';
+        } else {
+            users.push({ email, password, courses: [] });
+            document.getElementById('regMessage').innerText = 'Регистрация успешна';
+        }
+    });
+
+    // Вход
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const email = document.getElementById('loginEmail').value;
+        const password = document.getElementById('loginPassword').value;
+        const user = users.find(u => u.email === email && u.password === password);
+        if (user) {
+            currentUser = user;
+            document.getElementById('loginMessage').innerText = 'Вход выполнен';
+            document.getElementById('profileInfo').innerText = `Привет, ${user.email}. Купленные курсы: ${user.courses.join(', ') || 'нет'}`;
+        } else {
+            document.getElementById('loginMessage').innerText = 'Неверные данные';
+        }
+    });
+
+    // Добавление в корзину
+    document.querySelectorAll('.buyBtn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const courseEl = btn.parentElement;
+            const courseName = courseEl.querySelector('h3').innerText;
+            const coursePrice = parseInt(courseEl.dataset.price);
+            cart.push({ name: courseName, price: coursePrice });
+            updateCart();
+        });
+    });
+
+    function updateCart() {
+        const cartList = document.getElementById('cartList');
+        cartList.innerHTML = '';
+        let total = 0;
+        cart.forEach(c => {
+            const li = document.createElement('li');
+            li.innerText = `${c.name} - ${c.price} ₽`;
+            cartList.appendChild(li);
+            total += c.price;
+        });
+        document.getElementById('totalPrice').innerText = total;
+    }
+
+    // Оформление заказа
+    document.getElementById('checkoutBtn').addEventListener('click', function() {
+        if (!currentUser) {
+            document.getElementById('checkoutMessage').innerText = 'Пожалуйста, войдите';
+            return;
+        }
+        cart.forEach(c => currentUser.courses.push(c.name));
+        orders.push({ user: currentUser.email, items: [...cart] });
+        cart.length = 0;
+        updateCart();
+        document.getElementById('checkoutMessage').innerText = 'Заказ оформлен';
+        document.getElementById('profileInfo').innerText = `Привет, ${currentUser.email}. Купленные курсы: ${currentUser.courses.join(', ')}`;
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+select_id,option_index,expected_text,expected_value
+country,0,Выберите...,
+country,1,Россия,ru
+country,2,Германия,de
+country,3,США,us
+country,4,Бразилия,br

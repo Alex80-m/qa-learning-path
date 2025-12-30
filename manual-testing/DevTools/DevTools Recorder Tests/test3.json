@@ -1,0 +1,81 @@
+{
+    "title": "test3",
+    "steps": [
+        {
+            "type": "setViewport",
+            "width": 536,
+            "height": 770,
+            "deviceScaleFactor": 1,
+            "isMobile": false,
+            "hasTouch": false,
+            "isLandscape": false
+        },
+        {
+            "type": "navigate",
+            "url": "https://journal.top-academy.ru/ru/auth/login/index",
+            "assertedEvents": [
+                {
+                    "type": "navigation",
+                    "url": "https://journal.top-academy.ru/ru/auth/login/index",
+                    "title": "Journal"
+                }
+            ]
+        },
+        {
+            "type": "change",
+            "value": "Moise_br17",
+            "selectors": [
+                [
+                    "aria/Логин"
+                ],
+                [
+                    "#username"
+                ],
+                [
+                    "xpath///*[@id=\"username\"]"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Вход"
+                ],
+                [
+                    "#\\31  > form > button"
+                ],
+                [
+                    "xpath///*[@id=\"1\"]/form/button"
+                ],
+                [
+                    "text/Вход"
+                ]
+            ],
+            "offsetY": 15.703125,
+            "offsetX": 31.984375
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Вход"
+                ],
+                [
+                    "#\\31  > form > button"
+                ],
+                [
+                    "xpath///*[@id=\"1\"]/form/button"
+                ],
+                [
+                    "text/Вход"
+                ]
+            ],
+            "offsetY": 22.703125,
+            "offsetX": 25.984375
+        }
+    ]
+}

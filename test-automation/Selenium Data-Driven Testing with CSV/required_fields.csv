@@ -1,0 +1,12 @@
+element_id,is_required
+username,true
+password,true
+emails,false
+age,false
+volume,false
+favcolor,false
+meeting,false
+attachments,false
+subscribe,false
+bio,false
+browser,false

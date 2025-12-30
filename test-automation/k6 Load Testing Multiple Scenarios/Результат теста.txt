@@ -1,0 +1,61 @@
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: test_dz11122025.js
+        output: -
+
+     scenarios: (100.00%) 5 scenarios, 146 max VUs, 10m30s max duration (incl. graceful stop):       
+              * fojin: 5 looping VUs for 20s (exec: testFojin, gracefulStop: 30s)
+              * grafana: 100 looping VUs for 30s (exec: testGrafana, gracefulStop: 30s)
+              * habr_career: Up to 10 looping VUs for 35s over 3 stages (gracefulRampDown: 30s, exec: testHabrCareer, gracefulStop: 30s)
+              * selenium: 30 looping VUs for 15s (exec: testSelenium, gracefulStop: 30s)
+              * top_academy: 15 iterations for each of 1 VUs (maxDuration: 10m0s, exec: testTopAcademy, gracefulStop: 30s)
+
+WARN[0036] Request Failed                                error="read tcp 192.168.50.80:43928->34.120.177.193:443: wsarecv: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond."
+WARN[0045] Request Failed                                error="Get \"https://career.habr.com/\": read tcp 192.168.50.80:43936->178.248.233.33:443: wsarecv: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond."
+
+
+  █ TOTAL RESULTS
+
+    checks_total.......: 1418   21.815351/s
+    checks_succeeded...: 99.85% 1416 out of 1418
+    checks_failed......: 0.14%  2 out of 1418
+
+    ✓ selenium status 200
+    ✗ grafana status 200
+      ↳  99% — ✓ 1193 / ✗ 1
+    ✗ habr career status 200
+      ↳  96% — ✓ 32 / ✗ 1
+    ✓ top-academy status 200
+    ✓ fojin status 200
+
+    HTTP
+    http_req_duration..............: avg=2.52s min=139.69ms med=2.25s max=38.67s p(90)=4.08s p(95)=4.97s
+      { expected_response:true }...: avg=2.47s min=139.69ms med=2.25s max=33.05s p(90)=4.07s p(95)=4.92s
+    http_req_failed................: 0.14%  2 out of 1418
+    http_reqs......................: 1418   21.815351/s
+
+    EXECUTION
+    iteration_duration.............: avg=2.79s min=240.19ms med=2.47s max=43.84s p(90)=4.27s p(95)=5.16s
+    iterations.....................: 1418   21.815351/s
+    vus............................: 1      min=1         max=142
+    vus_max........................: 146    min=146       max=146
+
+    NETWORK
+    data_received..................: 372 MB 5.7 MB/s
+    data_sent......................: 2.0 MB 31 kB/s
+
+
+
+                                                                                                     
+running (01m05.0s), 000/146 VUs, 1418 complete and 1 interrupted iterations                          
+fojin       ✓ [==================================] 5 VUs      20s                                    
+grafana     ✓ [==================================] 100 VUs    30s                                    
+habr_career ✓ [==================================] 01/10 VUs  35s                                    
+selenium    ✓ [==================================] 30 VUs     15s                                    
+top_academy ✓ [==================================] 1 VUs      00m39.1s/10m0s  15/15 iters, 15 per VU 

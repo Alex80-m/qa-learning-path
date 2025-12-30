@@ -1,0 +1,1 @@
+Написать автотесты на методы get post put и delete для пользователя с сайта swagger petstore

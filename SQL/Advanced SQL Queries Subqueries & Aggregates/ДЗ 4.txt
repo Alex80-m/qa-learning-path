@@ -1,0 +1,185 @@
+Select first_name, last_name
+From Passengers
+where passenger_id in (
+	select passenger_id 
+	from Tickets 
+	where price > 200
+	)
+ 
+Select *
+From Flights
+where flight_id in (
+	select flight_id 
+	From Tickets 
+	where passenger_id in (
+		select passenger_id 
+		From Passengers 
+		where last_name = 'Miller'
+		)
+) 
+
+Select *
+from tickets
+where price > (select avg(price) from Tickets)
+ 
+Select *
+From flights
+Where destination in (Select origin From flights)
+
+Select * 
+From passengers
+Where passenger_id  in (
+    Select passenger_id 
+    From tickets 
+    Where flight_id in (
+        Select flight_id 
+        From tickets 
+        Where passenger_id = 301
+    )
+) and passenger_id  <> 301
+
+Select * 
+From flights
+Where flight_id NOT IN (
+    Select distinct flight_id 
+    From tickets
+)
+ 
+Select first_name, last_name
+From Passengers
+where passenger_id in (
+	select passenger_id 
+	from Tickets 
+	where flight_id in (
+	select flight_id 
+	from Flights 
+	where destination = 'London'
+	)
+ )
+
+ Select *
+ From Tickets
+ Where price > (
+	Select min(price) 
+	From Tickets 
+	Where class = 'Business'
+	)
+
+ Select *
+ From Passengers
+ Where passenger_id in (
+	Select passenger_id 
+	From Tickets 
+	Where class = 'Economy'
+	)
+
+ Select *
+ From Flights
+ Where origin in (
+	Select destination
+	From Flights
+	)
+
+ Select flight_number, count(*) 
+ From Flights
+ Group by flight_number 
+ Having count(*) >0
+
+ Select *
+ From Passengers
+ Where passenger_id in (
+	Select passenger_id 
+	From Tickets 
+	Group by passenger_id 
+	Having sum(price) > 300
+	)
+
+Select destination
+From flights
+Where flight_id in (
+	Select flight_id 
+	From Tickets
+	Group by flight_id
+	Having COUNT(*) > 0
+	)
+
+Select class, avg(price) as 'Средняя цена'
+From Tickets
+Group by class
+Having avg(price)>200
+
+Select *
+From Flights
+Where flight_id in (
+	Select flight_id 
+	From Tickets 
+	Where price>200
+	)
+
+Select *
+From Passengers
+Where passenger_id in (
+	Select passenger_id
+	From Tickets
+	Group by passenger_id
+	Having max(price)>300
+	)
+
+Select *
+From Flights
+Where flight_id in (
+	Select flight_id 
+    FROM tickets 
+    WHERE passenger_id in (
+	Select passenger_id
+	From Passengers
+	Where last_name in (
+		Select last_name
+		From Passengers
+		Group by last_name
+		Having Count(*) > 1
+		)
+	)
+)
+
+Select P.*
+From Passengers P
+Where (
+	Select Count(*)
+	From Tickets T
+	Where T.passenger_id=P.passenger_id
+	and T.class = 'economy'
+	) >1
+
+Select *
+From flights
+Where flight_id IN (
+    Select flight_id 
+    From tickets 
+    Group by flight_id 
+    Having count(*) > (
+        Select avg(cnt) 
+        From (
+            Select count(*) as cnt 
+            From tickets 
+            Group by flight_id
+        ) as avg_counts
+    )
+)
+
+Select *
+From Flights
+Where flight_id in (
+	Select flight_id
+	From Tickets
+	Group by flight_id
+	Having sum(price) > (
+		Select sum(price)
+		From Tickets
+		Where flight_id = (
+			Select flight_id
+			From Flights
+			Where flight_number = 'XYZ789'
+			)
+		)
+	)

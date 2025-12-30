@@ -1,0 +1,1 @@
+Внутри <pre id='code-block'> есть текст с function hello()

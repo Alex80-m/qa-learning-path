@@ -1,0 +1,12 @@
+element_id,expected_type,expected_placeholder
+username,text,имя_пользователя
+password,password,пароль
+emails,email,"first@mail.example, second@mail.example"
+age,number,
+volume,range,
+favcolor,color,
+meeting,datetime-local,
+attachments,file,
+subscribe,checkbox,
+bio,textarea,Расскажите немного...
+browser,text,"Chrome, Firefox, ..."

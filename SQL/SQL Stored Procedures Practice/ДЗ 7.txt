@@ -1,0 +1,117 @@
+написать хранимые процедуры
+Найти рейсы с датой отправления между двумя датами (BETWEEN)
+Create Procedure FlightsDateOrigin @startDate datetime, @endDate datetime
+as
+begin
+	Select *
+	From Flights
+	Where departure_date 
+	Between @startDate and @endDate
+	Order by departure_date
+end;
+
+exec FlightsDateOrigin @startDate = '20230904', @endDate = '20230907'
+
+Найти пассажиров, чьи фамилии начинаются на определённую букву (LIKE)
+Create Procedure PassengerLastName @PassLastName varchar(50)
+as
+begin
+	Select *
+	From Passengers
+	Where last_name Like @PassLastName + '%'
+end;
+
+exec PassengerLastName @PassLastName = 'w'
+
+Получить билеты с ценой от A до B (BETWEEN)
+Create Procedure TicketsPriceAtoB @PriceA decimal(10,2), @PriceB decimal(10,2)
+as
+begin
+	Select *
+	From Tickets
+	Where price 
+	Between @PriceA and @PriceB
+	Order by price desc
+end;
+
+exec TicketsPriceAtoB @PriceA = 200, @PriceB = 300
+
+Получить рейсы в города из заданного списка (IN)
+Create Procedure FlightDestinationCities @DestinationCity1 varchar(50), @DestinationCity2 varchar(50) = Null, @DestinationCity3 varchar(50) = Null
+as
+begin
+	Select *
+	From Flights
+	Where destination in (@DestinationCity1, @DestinationCity2,@DestinationCity3)
+end;
+
+exec FlightDestinationCities 'Berlin', 'Paris'
+
+Найти пассажиров без указания пола (IS NULL)
+Create Procedure PassengerGenderNull 
+as
+begin
+	Select *
+	From Passengers
+	Where gender is null
+	Order by last_name, first_name
+end;
+
+exec PassengerGenderNull 
+
+Получить 5 самых дорогих билетов (ORDER BY + TOP)
+Create Procedure Tickets5MaxPrice
+as
+begin
+	Select TOP(5)*
+	From Tickets
+	Order by price desc
+end;
+
+exec Tickets5MaxPrice
+
+Найти пассажиров, у которых имя содержит "ан" (LIKE)
+Create Procedure FirstName_an @FirstName_a varchar(50) = '%ан%'
+as
+begin
+	Select first_name, last_name
+	From Passengers
+	Where first_name like @FirstName_a
+end;
+
+exec FirstName_an 
+
+Получить все билеты в классе "Economy" или "Business" (IN)
+Create Procedure TicketsClass @Class varchar(10) 
+as
+begin
+	Select *
+	From Tickets
+	Where class = @Class and class in ('Economy', 'Business')
+	Order by price desc
+end;
+
+exec TicketsClass @Class = 'Economy'
+
+Получить количество билетов для каждого класса (GROUP BY)
+Create Procedure TicketsCountClass  
+as
+begin
+	Select class, count(*) as TicketCount
+	From Tickets
+	Group by class
+	Order by TicketCount desc
+end;
+
+exec TicketsCountClass
+
+Получить уникальные направления (DISTINCT)
+Create Procedure DistinctDastination
+as
+begin
+	Select Distinct destination
+	From Flights
+	Order by destination
+end;
+
+exec DistinctDastination

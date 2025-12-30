@@ -1,0 +1,147 @@
+SELECT 
+    d.Name AS 'Кафедра',
+    COUNT(DISTINCT t.Id) AS 'Количество преподавателей' 
+FROM 
+    Teachers as t, 
+    Lectures as l, 
+    GroupsLectures as gl, 
+    Groups as g, 
+    Departments as d
+WHERE 
+    d.Name = 'Software Development'
+    AND l.TeacherId = t.Id
+    AND gl.LectureId = l.Id
+    AND gl.GroupId = g.Id
+    AND g.DepartmentId = d.Id
+GROUP BY 
+    d.Name;
+
+SELECT 
+    t.Surname + ' ' + t.Name as 'Преподаватель',
+    COUNT(DISTINCT s.Id) as 'Количество лекций'
+FROM 
+    Teachers as t, 
+    Lectures as l,
+	Subjects as s
+WHERE 
+    t.Surname = 'McQueen' AND t.Name = 'Dave'
+    and l.TeacherId = t.Id
+GROUP BY t.Surname, t.Name
+
+	Select Lectures.LectureRoom,
+	Count(Lectures.Id) as 'Количество занятий'
+From Lectures
+Where LectureRoom = 'D201'
+Group by Lectures.LectureRoom
+
+Select LectureRoom as 'Аудитория', 
+Count(*) as'Количество лекций'
+From Lectures
+Group by LectureRoom;
+
+Select 
+    t.Surname + ' ' + t.Name as 'Преподаватель',
+    g.Name as 'Группа',
+    COUNT(*) as 'Количество студентов'
+From 
+    Teachers t, 
+    GroupsLectures gl, 
+    Lectures l, 
+    Groups g
+Where  
+    gl.GroupId = g.Id
+    and gl.LectureId = l.Id 
+    and l.TeacherId = t.Id
+    and t.Surname = 'Underhill' 
+    and t.Name = 'Jack'
+Group by 
+    t.Surname, t.Name, g.Name
+
+	Select 
+    f.Name as 'Факультет',
+    avg(t.Salary) as 'Средняя ставка'
+From
+    Teachers t,
+    Lectures l,
+    GroupsLectures gl,
+    Groups g,
+    Departments d,
+    Faculties f
+Where 
+    t.Id = l.TeacherId
+    and l.Id = gl.LectureId
+    and gl.GroupId = g.Id
+    and g.DepartmentId = d.Id
+    and d.FacultyId = f.Id
+    and f.Name = 'Computer Science'
+Group by 
+    f.Name
+
+Select TOP 1 G.Name as Группа,
+       Count(St.Id) as Количество_студентов
+From Groups as G, Students as St
+Where St.GroupId = G.Id
+Group by G.Name
+Order by Количество_студентов asc
+
+Select TOP 1 G.Name as Группа,
+       Count(St.Id) as Количество_студентов
+From Groups as G, Students as St
+Where St.GroupId = G.Id
+Group by G.Name
+Order by Количество_студентов desc
+
+Select avg(Financing) as 'Средний фонд'
+From Departments
+
+Select t.Name + ' ' + t.Surname as 'Преподаватель', 
+    Count(DISTINCT l.SubjectId) as 'Кол-во дисциплин'
+From Teachers t, Lectures l
+Where t.Id = l.TeacherId
+Group by t.Id, t.Name, t.Surname
+
+Select DayOfWeek as День_недели,
+   Count(*) as Количество_лекций
+From GroupsLectures
+Group by DayOfWeek
+Order by DayOfWeek
+
+Select 
+    l.LectureRoom AS Аудитория,
+    Count(DISTINCT d.Id) as Количество_кафедр
+From Lectures l, GroupsLectures gl, Groups g, Departments d
+Where 
+    l.Id = gl.LectureId 
+    and gl.GroupId = g.Id 
+    and g.DepartmentId = d.Id
+Group by l.LectureRoom
+Order by l.LectureRoom
+
+Select f.Name as Факультет,
+    Count(DISTINCT l.SubjectId) as Количество_дисциплин
+From Faculties f, 
+    Departments d, 
+    Groups g, 
+    GroupsLectures gl, 
+    Lectures l
+Where f.Id = d.FacultyId
+    and d.Id = g.DepartmentId
+    and g.Id = gl.GroupId
+    and gl.LectureId = l.Id
+Group by f.Id, f.Name
+Order by Количество_дисциплин desc
+
+Select 
+    T.Surname + ' ' + T.Name as Преподаватель,
+    L.LectureRoom as Аудитория,
+    COUNT(DISTINCT L.SubjectId) as Количество_лекций
+From 
+    Teachers as T, 
+    Lectures as L, 
+    Subjects as S
+Where 
+    L.TeacherId = T.Id
+Group by 
+    T.Surname + ' ' + T.Name, L.LectureRoom
+Order by Преподаватель
+

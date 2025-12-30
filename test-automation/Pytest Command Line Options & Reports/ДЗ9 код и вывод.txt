@@ -1,0 +1,942 @@
+1. Запусти все тесты в проекте стандартной командой Pytest.
+(.venv) PS C:\Users\Админ\PycharmProjects\PythonProject2> pytest
+======================================================== test session starts =========================================================
+platform win32 -- Python 3.13.2, pytest-8.4.2, pluggy-1.6.0
+rootdir: C:\Users\Админ\PycharmProjects\PythonProject2
+plugins: html-4.1.1, metadata-3.1.1, xdist-3.8.0
+collected 4 items                                                                                                                     
+
+test_DZ09102025.py ....                                                                                                         [100%]
+
+========================================================= 4 passed in 36.56s ========================================================= 
+
+
+2. Выполни тесты только из одного указанного файла. pytest test_DZ09102025.py 
+(.venv) PS C:\Users\Админ\PycharmProjects\PythonProject2> pytest test_DZ09102025.py    
+========================= test session starts ==========================
+platform win32 -- Python 3.13.2, pytest-8.4.2, pluggy-1.6.0
+rootdir: C:\Users\Админ\PycharmProjects\PythonProject2
+plugins: html-4.1.1, metadata-3.1.1, xdist-3.8.0
+collected 4 items                                                       
+
+test_DZ09102025.py ....                                           [100%]
+
+========================== 4 passed in 34.60s ========================== 
+
+
+3. Запусти один конкретный тест по его имени. pytest -k "test_class_name" или pytest -k test_class_name 
+(.venv) PS C:\Users\Админ\PycharmProjects\PythonProject2> pytest -k "test_class_name"
+========================= test session starts ==========================
+platform win32 -- Python 3.13.2, pytest-8.4.2, pluggy-1.6.0
+rootdir: C:\Users\Админ\PycharmProjects\PythonProject2
+plugins: html-4.1.1, metadata-3.1.1, xdist-3.8.0
+collected 4 items / 3 deselected / 1 selected                           
+
+test_DZ09102025.py .                                              [100%]
+
+=================== 1 passed, 3 deselected in 8.06s ==================== 
+
+4. Выполни тесты с подробным выводом в консоль. pytest -v 
+(.venv) PS C:\Users\Админ\PycharmProjects\PythonProject2> pytest -v      
+========================= test session starts ==========================
+platform win32 -- Python 3.13.2, pytest-8.4.2, pluggy-1.6.0 -- C:\Users\Админ\PycharmProjects\PythonProject2\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+metadata: {'Python': '3.13.2', 'Platform': 'Windows-11-10.0.26200-SP0', '
+Packages': {'pytest': '8.4.2', 'pluggy': '1.6.0'}, 'Plugins': {'html': '4.1.1', 'metadata': '3.1.1', 'xdist': '3.8.0'}}
+rootdir: C:\Users\Админ\PycharmProjects\PythonProject2
+plugins: html-4.1.1, metadata-3.1.1, xdist-3.8.0
+collected 4 items                                                       
+
+test_DZ09102025.py::TestLocators::test_name PASSED                [ 25%]
+test_DZ09102025.py::TestLocators::test_class_name PASSED          [ 50%]
+test_DZ09102025.py::TestLocators::test_css_selector PASSED        [ 75%]
+test_DZ09102025.py::TestLocators::test_xpath PASSED               [100%]
+
+========================== 4 passed in 34.81s ========================== 
+
+
+5. Запусти тесты так, чтобы отображались все сообщения print(). pytest -s
+(.venv) PS C:\Users\Админ\PycharmProjects\PythonProject2> pytest -s
+========================= test session starts ==========================
+platform win32 -- Python 3.13.2, pytest-8.4.2, pluggy-1.6.0
+rootdir: C:\Users\Админ\PycharmProjects\PythonProject2
+plugins: html-4.1.1, metadata-3.1.1, xdist-3.8.0
+collected 4 items                                                       
+
+test_DZ09102025.py Ввести текст в поле 'name' Какой-то текст!
+....
+
+========================== 4 passed in 34.43s ========================== 
+
+
+6. Проверь, как меняется формат ошибок при использовании разных вариантов параметра --tb.
+pytest --tb=short - короткий формат
+(.venv) PS C:\Users\Админ\PycharmProjects\PythonProject2> pytest --tb=short
+========================= test session starts ==========================
+platform win32 -- Python 3.13.2, pytest-8.4.2, pluggy-1.6.0
+rootdir: C:\Users\Админ\PycharmProjects\PythonProject2
+plugins: html-4.1.1, metadata-3.1.1, xdist-3.8.0
+collected 4 items                                                       
+
+test_DZ09102025.py ....                                           [100%]
+
+========================== 4 passed in 35.04s ========================== 
+
+pytest --tb=long - длинный формат (по умолчанию)
+
+(.venv) PS C:\Users\Админ\PycharmProjects\PythonProject2> pytest --tb=long
+========================= test session starts ==========================
+platform win32 -- Python 3.13.2, pytest-8.4.2, pluggy-1.6.0
+rootdir: C:\Users\Админ\PycharmProjects\PythonProject2
+plugins: html-4.1.1, metadata-3.1.1, xdist-3.8.0
+collected 4 items                                                       
+
+test_DZ09102025.py ....                                           [100%]
+
+========================== 4 passed in 34.68s ========================== 
+
+
+pytest --tb=line - только строки с ошибками
+(.venv) PS C:\Users\Админ\PycharmProjects\PythonProject2> pytest --tb=line
+========================= test session starts ==========================
+platform win32 -- Python 3.13.2, pytest-8.4.2, pluggy-1.6.0
+rootdir: C:\Users\Админ\PycharmProjects\PythonProject2
+plugins: html-4.1.1, metadata-3.1.1, xdist-3.8.0
+collected 4 items                                                       
+
+test_DZ09102025.py ..F.                                           [100%]
+
+=============================== FAILURES =============================== 
+C:\Users\Админ\PycharmProjects\PythonProject2\.venv\Lib\site-packages\sel
+enium\webdriver\remote\errorhandler.py:232: selenium.common.exceptions.No
+SuchElementException: Message: no such element: Unable to locate element:
+ {"method":"css selector","selector":"a menu_brand__j5EWO:nth-of-type(6)"}
+======================= short test summary info ======================== 
+FAILED test_DZ09102025.py::TestLocators::test_css_selector - selenium.common.exceptions.NoSuchElementException: Message: no such ...
+===================== 1 failed, 3 passed in 32.16s ===================== 
+
+pytest --tb=no - минимальный вывод
+(.venv) PS C:\Users\Админ\PycharmProjects\PythonProject2> pytest --tb=no 
+========================= test session starts ==========================
+platform win32 -- Python 3.13.2, pytest-8.4.2, pluggy-1.6.0
+rootdir: C:\Users\Админ\PycharmProjects\PythonProject2
+plugins: html-4.1.1, metadata-3.1.1, xdist-3.8.0
+collected 4 items                                                       
+
+test_DZ09102025.py ..F.                                           [100%]
+
+======================= short test summary info ======================== 
+FAILED test_DZ09102025.py::TestLocators::test_css_selector - selenium.common.exceptions.NoSuchElementException: Message: no such ...
+===================== 1 failed, 3 passed in 32.13s ===================== 
+
+
+pytest --tb=native - max отображение всех внутренних вызовов
+
+(.venv) PS C:\Users\Админ\PycharmProjects\PythonProject2> pytest --tb=native
+========================= test session starts ==========================
+platform win32 -- Python 3.13.2, pytest-8.4.2, pluggy-1.6.0
+rootdir: C:\Users\Админ\PycharmProjects\PythonProject2
+plugins: html-4.1.1, metadata-3.1.1, xdist-3.8.0
+collected 4 items                                                       
+
+test_DZ09102025.py ..F.                                           [100%]
+
+=============================== FAILURES =============================== 
+____________________ TestLocators.test_css_selector ____________________ 
+Traceback (most recent call last):
+  File "C:\Users\Админ\PycharmProjects\PythonProject2\.venv\Lib\site-packages\_pytest\runner.py", line 344, in from_call
+    result: TResult | None = func()
+                             ~~~~^^
+  File "C:\Users\Админ\PycharmProjects\PythonProject2\.venv\Lib\site-packages\_pytest\runner.py", line 246, in <lambda>
+    lambda: runtest_hook(item=item, **kwds), when=when, reraise=reraise  
+            ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Админ\PycharmProjects\PythonProject2\.venv\Lib\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Админ\PycharmProjects\PythonProject2\.venv\Lib\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult) 
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
+  File "C:\Users\Админ\PycharmProjects\PythonProject2\.venv\Lib\site-packages\pluggy\_callers.py", line 167, in _multicall
+    raise exception
+  File "C:\Users\Админ\PycharmProjects\PythonProject2\.venv\Lib\site-packages\pluggy\_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\Админ\PycharmProjects\PythonProject2\.venv\Lib\site-packages\_pytest\logging.py", line 850, in pytest_runtest_call
+    yield
+  File "C:\Users\Админ\PycharmProjects\PythonProject2\.venv\Lib\site-packages\pluggy\_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\Админ\PycharmProjects\PythonProject2\.venv\Lib\site-packages\_pytest\capture.py", line 900, in pytest_runtest_call
+    return (yield)
+            ^^^^^
+  File "C:\Users\Админ\PycharmProjects\PythonProject2\.venv\Lib\site-packages\pluggy\_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\Админ\PycharmProjects\PythonProject2\.venv\Lib\site-packages\_pytest\skipping.py", line 263, in pytest_runtest_call
+    return (yield)
+            ^^^^^
+  File "C:\Users\Админ\PycharmProjects\PythonProject2\.venv\Lib\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\Админ\PycharmProjects\PythonProject2\.venv\Lib\site-packages\_pytest\runner.py", line 178, in pytest_runtest_call
+    item.runtest()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\Админ\PycharmProjects\PythonProject2\.venv\Lib\site-packages\_pytest\python.py", line 1671, in runtest
+    self.ihook.pytest_pyfunc_call(pyfuncitem=self)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Админ\PycharmProjects\PythonProject2\.venv\Lib\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Админ\PycharmProjects\PythonProject2\.venv\Lib\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult) 
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
+  File "C:\Users\Админ\PycharmProjects\PythonProject2\.venv\Lib\site-packages\pluggy\_callers.py", line 167, in _multicall
+    raise exception
+  File "C:\Users\Админ\PycharmProjects\PythonProject2\.venv\Lib\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\Админ\PycharmProjects\PythonProject2\.venv\Lib\site-packages\_pytest\python.py", line 157, in pytest_pyfunc_call
+    result = testfunction(**testargs)
+  File "C:\Users\Админ\PycharmProjects\PythonProject2\test_DZ09102025.py", line 40, in test_css_selector
+    self.driver.find_element(By.CSS_SELECTOR, "amenu_brand__j5EWO:nth-of-type(6)").click()
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Админ\PycharmProjects\PythonProject2\.venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 926, in find_element  
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Админ\PycharmProjects\PythonProject2\.venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 458, in execute       
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Админ\PycharmProjects\PythonProject2\.venv\Lib\site-pack
+ages\selenium\webdriver\remote\errorhandler.py", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such eleme
+nt: Unable to locate element: {"method":"css selector","selector":"amenu_brand__j5EWO:nth-of-type(6)"}
+  (Session info: chrome=141.0.7390.123); For documentation on this error,
+ please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Stacktrace:
+        GetHandleVerifier [0x0x7ff6d47de8e5+80021]
+        GetHandleVerifier [0x0x7ff6d47de940+80112]
+        (No symbol) [0x0x7ff6d456060f]
+        (No symbol) [0x0x7ff6d45b8854]
+        (No symbol) [0x0x7ff6d45b8b1c]
+        (No symbol) [0x0x7ff6d460c927]
+        (No symbol) [0x0x7ff6d45e126f]
+        (No symbol) [0x0x7ff6d460968a]
+        (No symbol) [0x0x7ff6d45e1003]
+        (No symbol) [0x0x7ff6d45a95d1]
+        (No symbol) [0x0x7ff6d45aa3f3]
+        GetHandleVerifier [0x0x7ff6d4a9dc7d+2960429]
+        GetHandleVerifier [0x0x7ff6d4a97f3a+2936554]
+        GetHandleVerifier [0x0x7ff6d4ab8977+3070247]
+        GetHandleVerifier [0x0x7ff6d47f83ce+185214]
+        GetHandleVerifier [0x0x7ff6d47ffe1f+216527]
+        GetHandleVerifier [0x0x7ff6d47e7b24+117460]
+        GetHandleVerifier [0x0x7ff6d47e7cdf+117903]
+        GetHandleVerifier [0x0x7ff6d47cdbb8+11112]
+        BaseThreadInitThunk [0x0x7ff8a3d2e8d7+23]
+        RtlUserThreadStart [0x0x7ff8a43ac53c+44]
+
+======================= short test summary info ======================== 
+FAILED test_DZ09102025.py::TestLocators::test_css_selector - selenium.common.exceptions.NoSuchElementException: Message: no such ...
+===================== 1 failed, 3 passed in 33.26s ===================== 
+
+
+7. Запусти тесты с отображением логов уровня INFO в консоли. pytest --log-cli-level=INFO
+
+(.venv) PS C:\Users\Админ\PycharmProjects\PythonProject2> pytest --log-cli-level=INFO
+========================= test session starts ==========================
+platform win32 -- Python 3.13.2, pytest-8.4.2, pluggy-1.6.0
+rootdir: C:\Users\Админ\PycharmProjects\PythonProject2
+plugins: html-4.1.1, metadata-3.1.1, xdist-3.8.0
+collected 4 items                                                       
+
+test_DZ09102025.py::TestLocators::test_name PASSED                [ 25%]
+test_DZ09102025.py::TestLocators::test_class_name PASSED          [ 50%]
+test_DZ09102025.py::TestLocators::test_css_selector PASSED        [ 75%]
+test_DZ09102025.py::TestLocators::test_xpath FAILED               [100%]
+
+=============================== FAILURES =============================== 
+_______________________ TestLocators.test_xpath ________________________ 
+
+self = <test_DZ09102025.TestLocators object at 0x0000015D33976D70>       
+
+    def test_xpath(self):
+        self.driver.get("https://natalexauto.com/")
+        locator_xpath = self.driver.find_element(By.XPATH, "//button[contains(@class, 'button_button__tY9TG')]")
+        locator_xpath.click()
+        time.sleep(2)
+>       ford_element = self.driver.find_element(By.XPATH, "/p[text()='FORD']")
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+test_DZ09102025.py:48:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _  
+.venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py:926: in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py:458: in execute
+    self.error_handler.check_response(response)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _  
+
+self = <selenium.webdriver.remote.errorhandler.ErrorHandler object at 0x0000015D33A382B0>
+response = {'status': 404, 'value': '{"value":{"error":"no such element",
+"message":"no such element: Unable to locate element: {\...ff6d47cdbb8+11
+112]\\n\\tBaseThreadInitThunk [0x0x7ff8a3d2e8d7+23]\\n\\tRtlUserThreadStart [0x0x7ff8a43ac53c+44]\\n"}}'}
+
+    def check_response(self, response: dict[str, Any]) -> None:
+        """Checks that a JSON response from the WebDriver does not have an
+        error.                                                           
+
+        :Args:                                                           
+         - response - The JSON response from the WebDriver server as a dictionary
+           object.                                                       
+
+        :Raises: If the response contains an error message.              
+        """                                                              
+        status = response.get("status", None)
+        if not status or status == ErrorCode.SUCCESS:
+            return                                                       
+        value = None                                                     
+        message = response.get("message", "")
+        screen: str = response.get("screen", "")
+        stacktrace = None                                                
+        if isinstance(status, int):
+            value_json = response.get("value", None)
+            if value_json and isinstance(value_json, str):
+                try:
+                    value = json.loads(value_json)
+                    if isinstance(value, dict):
+                        if len(value) == 1:
+                            value = value["value"]
+                        status = value.get("error", None)
+                        if not status:
+                            status = value.get("status", ErrorCode.UNKNOWN_ERROR)
+                            message = value.get("value") or value.get("message")
+                            if not isinstance(message, str):
+                                value = message
+                                message = message.get("message") if isinstance(message, dict) else None                                           
+                        else:
+                            message = value.get("message", None)
+                except ValueError:
+                    pass                                                 
+
+        exception_class: type[WebDriverException]
+        e = ErrorCode()
+        error_codes = [item for item in dir(e) if not item.startswith("__")]
+        for error_code in error_codes:
+            error_info = getattr(ErrorCode, error_code)
+            if isinstance(error_info, list) and status in error_info:    
+                exception_class = getattr(ExceptionMapping, error_code, WebDriverException)
+                break                                                    
+        else:
+            exception_class = WebDriverException
+
+        if not value:
+            value = response["value"]
+        if isinstance(value, str):
+            raise exception_class(value)
+        if message == "" and "message" in value:
+            message = value["message"]
+
+        screen = None  # type: ignore[assignment]                        
+        if "screen" in value:
+            screen = value["screen"]
+
+        stacktrace = None                                                
+        st_value = value.get("stackTrace") or value.get("stacktrace")    
+        if st_value:
+            if isinstance(st_value, str):
+                stacktrace = st_value.split("\n")
+            else:
+                stacktrace = []
+                try:
+                    for frame in st_value:
+                        line = frame.get("lineNumber", "")
+                        file = frame.get("fileName", "<anonymous>")      
+                        if line:
+                            file = f"{file}:{line}"                      
+                        meth = frame.get("methodName", "<anonymous>")    
+                        if "className" in frame:
+                            meth = f"{frame['className']}.{meth}"        
+                        msg = "    at %s (%s)"                           
+                        msg = msg % (meth, file)
+                        stacktrace.append(msg)
+                except TypeError:
+                    pass                                                 
+        if exception_class == UnexpectedAlertPresentException:
+            alert_text = None                                            
+            if "data" in value:
+                alert_text = value["data"].get("text")
+            elif "alert" in value:
+                alert_text = value["alert"].get("text")
+            raise exception_class(message, screen, stacktrace, alert_text)  # type: ignore[call-arg]  # mypy is not smart enough here             
+>       raise exception_class(message, screen, stacktrace)
+E       selenium.common.exceptions.NoSuchElementException: Message: no su
+ch element: Unable to locate element: {"method":"xpath","selector":"/p[text()='FORD']"}                                                           
+E         (Session info: chrome=141.0.7390.123); For documentation on thi
+s error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception                             
+E       Stacktrace:
+E               GetHandleVerifier [0x0x7ff6d47de8e5+80021]
+E               GetHandleVerifier [0x0x7ff6d47de940+80112]
+E               (No symbol) [0x0x7ff6d456060f]
+E               (No symbol) [0x0x7ff6d45b8854]
+E               (No symbol) [0x0x7ff6d45b8b1c]
+E               (No symbol) [0x0x7ff6d460c927]
+E               (No symbol) [0x0x7ff6d45e126f]
+E               (No symbol) [0x0x7ff6d460968a]
+E               (No symbol) [0x0x7ff6d45e1003]
+E               (No symbol) [0x0x7ff6d45a95d1]
+E               (No symbol) [0x0x7ff6d45aa3f3]
+E               GetHandleVerifier [0x0x7ff6d4a9dc7d+2960429]
+E               GetHandleVerifier [0x0x7ff6d4a97f3a+2936554]
+E               GetHandleVerifier [0x0x7ff6d4ab8977+3070247]
+E               GetHandleVerifier [0x0x7ff6d47f83ce+185214]
+E               GetHandleVerifier [0x0x7ff6d47ffe1f+216527]
+E               GetHandleVerifier [0x0x7ff6d47e7b24+117460]
+E               GetHandleVerifier [0x0x7ff6d47e7cdf+117903]
+E               GetHandleVerifier [0x0x7ff6d47cdbb8+11112]
+E               BaseThreadInitThunk [0x0x7ff8a3d2e8d7+23]
+E               RtlUserThreadStart [0x0x7ff8a43ac53c+44]
+
+.venv\Lib\site-packages\selenium\webdriver\remote\errorhandler.py:232: NoSuchElementException
+======================= short test summary info ======================== 
+FAILED test_DZ09102025.py::TestLocators::test_xpath - selenium.common.exceptions.NoSuchElementException: Message: no such ...
+===================== 1 failed, 3 passed in 31.94s ===================== 
+(.venv) PS C:\Users\Админ\PycharmProjects\PythonProject2> 
+
+8. Сохрани все логи выполнения тестов в файл. pytest --log-file=test_log1.log 
+Для разработки (максимум информации):
+pytest --log-file=logs.log --log-file-level=DEBUG
+
+Для CI/CD (только проблемы)  
+pytest --log-file=logs.log  - по умолчанию WARNING
+
+Для анализа выполнения
+pytest --log-file=logs.log --log-file-level=INFO
+
+(.venv) PS C:\Users\Админ\PycharmProjects\PythonProject2> pytest --log-file=log1.log
+========================= test session starts ==========================
+platform win32 -- Python 3.13.2, pytest-8.4.2, pluggy-1.6.0
+rootdir: C:\Users\Админ\PycharmProjects\PythonProject2
+plugins: html-4.1.1, metadata-3.1.1, xdist-3.8.0
+collected 4 items                                                       
+
+test_DZ09102025.py ...F                                           [100%]
+
+=============================== FAILURES =============================== 
+_______________________ TestLocators.test_xpath ________________________ 
+
+self = <test_DZ09102025.TestLocators object at 0x000001A7F17F6D70>       
+
+    def test_xpath(self):
+        self.driver.get("https://natalexauto.com/")
+        locator_xpath = self.driver.find_element(By.XPATH, "//button[contains(@class, 'button_button__tY9TG')]")
+        locator_xpath.click()
+        time.sleep(2)
+>       ford_element = self.driver.find_element(By.XPATH, "/p[text()='FORD']")
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+test_DZ09102025.py:48:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _  
+.venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py:926: in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py:458: in execute
+    self.error_handler.check_response(response)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _  
+
+self = <selenium.webdriver.remote.errorhandler.ErrorHandler object at 0x000001A7F18C42B0>
+response = {'status': 404, 'value': '{"value":{"error":"no such element",
+"message":"no such element: Unable to locate element: {\...ff6d47cdbb8+11
+112]\\n\\tBaseThreadInitThunk [0x0x7ff8a3d2e8d7+23]\\n\\tRtlUserThreadStart [0x0x7ff8a43ac53c+44]\\n"}}'}
+
+    def check_response(self, response: dict[str, Any]) -> None:
+        """Checks that a JSON response from the WebDriver does not have an
+        error.                                                           
+
+        :Args:                                                           
+         - response - The JSON response from the WebDriver server as a dictionary
+           object.                                                       
+
+        :Raises: If the response contains an error message.              
+        """                                                              
+        status = response.get("status", None)
+        if not status or status == ErrorCode.SUCCESS:
+            return                                                       
+        value = None                                                     
+        message = response.get("message", "")
+        screen: str = response.get("screen", "")
+        stacktrace = None                                                
+        if isinstance(status, int):
+            value_json = response.get("value", None)
+            if value_json and isinstance(value_json, str):
+                try:
+                    value = json.loads(value_json)
+                    if isinstance(value, dict):
+                        if len(value) == 1:
+                            value = value["value"]
+                        status = value.get("error", None)
+                        if not status:
+                            status = value.get("status", ErrorCode.UNKNOWN_ERROR)
+                            message = value.get("value") or value.get("message")
+                            if not isinstance(message, str):
+                                value = message
+                                message = message.get("message") if isinstance(message, dict) else None                                           
+                        else:
+                            message = value.get("message", None)
+                except ValueError:
+                    pass                                                 
+
+        exception_class: type[WebDriverException]
+        e = ErrorCode()
+        error_codes = [item for item in dir(e) if not item.startswith("__")]
+        for error_code in error_codes:
+            error_info = getattr(ErrorCode, error_code)
+            if isinstance(error_info, list) and status in error_info:    
+                exception_class = getattr(ExceptionMapping, error_code, WebDriverException)
+                break                                                    
+        else:
+            exception_class = WebDriverException
+
+        if not value:
+            value = response["value"]
+        if isinstance(value, str):
+            raise exception_class(value)
+        if message == "" and "message" in value:
+            message = value["message"]
+
+        screen = None  # type: ignore[assignment]                        
+        if "screen" in value:
+            screen = value["screen"]
+
+        stacktrace = None                                                
+        st_value = value.get("stackTrace") or value.get("stacktrace")    
+        if st_value:
+            if isinstance(st_value, str):
+                stacktrace = st_value.split("\n")
+            else:
+                stacktrace = []
+                try:
+                    for frame in st_value:
+                        line = frame.get("lineNumber", "")
+                        file = frame.get("fileName", "<anonymous>")      
+                        if line:
+                            file = f"{file}:{line}"                      
+                        meth = frame.get("methodName", "<anonymous>")    
+                        if "className" in frame:
+                            meth = f"{frame['className']}.{meth}"        
+                        msg = "    at %s (%s)"                           
+                        msg = msg % (meth, file)
+                        stacktrace.append(msg)
+                except TypeError:
+                    pass                                                 
+        if exception_class == UnexpectedAlertPresentException:
+            alert_text = None                                            
+            if "data" in value:
+                alert_text = value["data"].get("text")
+            elif "alert" in value:
+                alert_text = value["alert"].get("text")
+            raise exception_class(message, screen, stacktrace, alert_text)  # type: ignore[call-arg]  # mypy is not smart enough here             
+>       raise exception_class(message, screen, stacktrace)
+E       selenium.common.exceptions.NoSuchElementException: Message: no su
+ch element: Unable to locate element: {"method":"xpath","selector":"/p[text()='FORD']"}                                                           
+E         (Session info: chrome=141.0.7390.123); For documentation on thi
+s error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception                             
+E       Stacktrace:
+E               GetHandleVerifier [0x0x7ff6d47de8e5+80021]
+E               GetHandleVerifier [0x0x7ff6d47de940+80112]
+E               (No symbol) [0x0x7ff6d456060f]
+E               (No symbol) [0x0x7ff6d45b8854]
+E               (No symbol) [0x0x7ff6d45b8b1c]
+E               (No symbol) [0x0x7ff6d460c927]
+E               (No symbol) [0x0x7ff6d45e126f]
+E               (No symbol) [0x0x7ff6d460968a]
+E               (No symbol) [0x0x7ff6d45e1003]
+E               (No symbol) [0x0x7ff6d45a95d1]
+E               (No symbol) [0x0x7ff6d45aa3f3]
+E               GetHandleVerifier [0x0x7ff6d4a9dc7d+2960429]
+E               GetHandleVerifier [0x0x7ff6d4a97f3a+2936554]
+E               GetHandleVerifier [0x0x7ff6d4ab8977+3070247]
+E               GetHandleVerifier [0x0x7ff6d47f83ce+185214]
+E               GetHandleVerifier [0x0x7ff6d47ffe1f+216527]
+E               GetHandleVerifier [0x0x7ff6d47e7b24+117460]
+E               GetHandleVerifier [0x0x7ff6d47e7cdf+117903]
+E               GetHandleVerifier [0x0x7ff6d47cdbb8+11112]
+E               BaseThreadInitThunk [0x0x7ff8a3d2e8d7+23]
+E               RtlUserThreadStart [0x0x7ff8a43ac53c+44]
+
+.venv\Lib\site-packages\selenium\webdriver\remote\errorhandler.py:232: NoSuchElementException
+======================= short test summary info ======================== 
+FAILED test_DZ09102025.py::TestLocators::test_xpath - selenium.common.exceptions.NoSuchElementException: Message: no such ...
+===================== 1 failed, 3 passed in 32.59s ===================== 
+
+
+9. Пометь тесты меткой @pytest.mark.smoke и запусти только их. 
+pytest -m smoke
+
+(.venv) PS C:\Users\Админ\PycharmProjects\PythonProject2> pytest -m smoke
+========================= test session starts ==========================
+platform win32 -- Python 3.13.2, pytest-8.4.2, pluggy-1.6.0
+rootdir: C:\Users\Админ\PycharmProjects\PythonProject2
+plugins: html-4.1.1, metadata-3.1.1, xdist-3.8.0
+collected 4 items / 2 deselected / 2 selected                           
+
+
+test_DZ09102025.py ..                                             [100%]
+
+=========================== warnings summary ===========================
+test_DZ09102025.py:36
+  C:\Users\Админ\PycharmProjects\PythonProject2\test_DZ09102025.py:36: Py
+testUnknownMarkWarning: Unknown pytest.mark.smoke - is this a typo?  You 
+can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.smoke
+
+test_DZ09102025.py:44
+  C:\Users\Админ\PycharmProjects\PythonProject2\test_DZ09102025.py:44: Py
+testUnknownMarkWarning: Unknown pytest.mark.smoke - is this a typo?  You 
+can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.smoke
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html  
+============= 2 passed, 2 deselected, 2 warnings in 20.37s ============= 
+(.venv) PS C:\Users\Админ\PycharmProjects\PythonProject2> 
+
+10. Запусти все тесты, кроме отмеченных меткой smoke.
+pytest -m "not smoke"
+
+(.venv) PS C:\Users\Админ\PycharmProjects\PythonProject2> pytest -m "not smoke"
+========================= test session starts ==========================
+platform win32 -- Python 3.13.2, pytest-8.4.2, pluggy-1.6.0
+rootdir: C:\Users\Админ\PycharmProjects\PythonProject2
+plugins: html-4.1.1, metadata-3.1.1, xdist-3.8.0
+collected 4 items / 2 deselected / 2 selected                           
+
+test_DZ09102025.py ..                                             [100%]
+
+=========================== warnings summary =========================== 
+test_DZ09102025.py:36
+  C:\Users\Админ\PycharmProjects\PythonProject2\test_DZ09102025.py:36: Py
+testUnknownMarkWarning: Unknown pytest.mark.smoke - is this a typo?  You 
+can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.smoke
+
+test_DZ09102025.py:44
+  C:\Users\Админ\PycharmProjects\PythonProject2\test_DZ09102025.py:44: Py
+testUnknownMarkWarning: Unknown pytest.mark.smoke - is this a typo?  You 
+can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.smoke
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html  
+============= 2 passed, 2 deselected, 2 warnings in 14.72s ============= 
+(.venv) PS C:\Users\Админ\PycharmProjects\PythonProject2> 
+
+11. Выполни тесты параллельно в нескольких потоках. pytest -n 2
+С начало устанавливаем библиотеку, если ранее не устанавливали: pip install pytest-xdist
+
+(.venv) PS C:\Users\Админ\PycharmProjects\PythonProject2> pytest -n 2
+========================= test session starts ==========================
+platform win32 -- Python 3.13.2, pytest-8.4.2, pluggy-1.6.0
+rootdir: C:\Users\Админ\PycharmProjects\PythonProject2
+plugins: html-4.1.1, metadata-3.1.1, xdist-3.8.0
+2 workers [4 items]     
+....                                                              [100%]
+========================== 4 passed in 20.55s ========================== 
+(.venv) PS C:\Users\Админ\PycharmProjects\PythonProject2> 
+
+12. Сформируй отчёт о тестах в формате JUnit XML.
+pytest --junitxml=report4.xml
+
+(.venv) PS C:\Users\Админ\PycharmProjects\PythonProject2> pytest --junitxml=report4.xml
+========================= test session starts ==========================
+platform win32 -- Python 3.13.2, pytest-8.4.2, pluggy-1.6.0
+rootdir: C:\Users\Админ\PycharmProjects\PythonProject2
+plugins: html-4.1.1, metadata-3.1.1, xdist-3.8.0
+collected 4 items                                                       
+
+test_DZ09102025.py ....                                           [100%]
+
+- generated xml file: C:\Users\Админ\PycharmProjects\PythonProject2\report4.xml -
+========================== 4 passed in 34.31s ==========================
+
+13. Сгенерируй HTML-отчёт с результатами выполнения тестов.
+pytest --html=report5.html
+
+(.venv) PS C:\Users\Админ\PycharmProjects\PythonProject2> pytest --html=report5.html
+=============================================================================== test session starts ===============================================================================
+platform win32 -- Python 3.13.2, pytest-8.4.2, pluggy-1.6.0
+rootdir: C:\Users\Админ\PycharmProjects\PythonProject2
+plugins: html-4.1.1, metadata-3.1.1, xdist-3.8.0
+collected 4 items                                                                                                                                                                  
+
+test_DZ09102025.py ....                                                                                                                                                      [100%]
+
+------------------------------- Generated html report: file:///C:/Users/%D0%90%D0%B4%D0%BC%D0%B8%D0%BD/PycharmProjects/PythonProject2/report5.html -------------------------------- 
+=============================================================================== 4 passed in 35.91s ================================================================================ 
+
+14. Проведи запуск тестов с ограничением количества допустимых ошибок.
+pytest --maxfail=2
+
+(.venv) PS C:\Users\Админ\PycharmProjects\PythonProject2> pytest --maxfail=2                                                                      
+=============================================================================== test session starts ===============================================================================
+platform win32 -- Python 3.13.2, pytest-8.4.2, pluggy-1.6.0
+rootdir: C:\Users\Админ\PycharmProjects\PythonProject2
+plugins: html-4.1.1, metadata-3.1.1, xdist-3.8.0
+collected 4 items                                                        
+
+test_DZ09102025.py ....                                           [100%]
+
+========================== 4 passed in 33.90s ========================== 
+
+15. Проверь возможность комбинированного запуска тестов с фильтрацией по имени и метке.
+pytest -k "xpath" -m smoke 
+(.venv) PS C:\Users\Админ\PycharmProjects\PythonProject2> pytest -k "xpath" -m smoke                                                              
+========================= test session starts ==========================
+platform win32 -- Python 3.13.2, pytest-8.4.2, pluggy-1.6.0
+rootdir: C:\Users\Админ\PycharmProjects\PythonProject2
+plugins: html-4.1.1, metadata-3.1.1, xdist-3.8.0
+collected 4 items / 3 deselected / 1 selected                           
+
+test_DZ09102025.py .                                              [100%]
+
+=========================== warnings summary =========================== 
+test_DZ09102025.py:43
+  C:\Users\Админ\PycharmProjects\PythonProject2\test_DZ09102025.py:43: Py
+testUnknownMarkWarning: Unknown pytest.mark.smoke - is this a typo?  You 
+can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.smoke
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html  
+============= 1 passed, 3 deselected, 1 warning in 10.12s ============== 
+
+16. Выполни тесты в тихом режиме без лишней информации в консоли.
+pytest -q
+
+(.venv) PS C:\Users\Админ\PycharmProjects\PythonProject2> pytest -q
+....                                                              [100%]
+4 passed in 34.40s                                                       
+
+
+17. Запусти тесты с максимальным уровнем детализации (-vv).
+
+(.venv) PS C:\Users\Админ\PycharmProjects\PythonProject2> pytest -vv
+========================= test session starts ==========================
+platform win32 -- Python 3.13.2, pytest-8.4.2, pluggy-1.6.0 -- C:\Users\Админ\PycharmProjects\PythonProject2\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+metadata: {'Python': '3.13.2', 'Platform': 'Windows-11-10.0.26200-SP0', '
+Packages': {'pytest': '8.4.2', 'pluggy': '1.6.0'}, 'Plugins': {'html': '4.1.1', 'metadata': '3.1.1', 'xdist': '3.8.0'}}
+rootdir: C:\Users\Админ\PycharmProjects\PythonProject2
+plugins: html-4.1.1, metadata-3.1.1, xdist-3.8.0
+collected 4 items                                                       
+
+test_DZ09102025.py::TestLocators::test_name PASSED                [ 25%]
+test_DZ09102025.py::TestLocators::test_class_name PASSED          [ 50%]
+test_DZ09102025.py::TestLocators::test_css_selector PASSED        [ 75%]
+test_DZ09102025.py::TestLocators::test_xpath PASSED               [100%]
+
+========================== 4 passed in 38.09s ========================== 
+
+18. Проверь создание отчёта с логами и результатами тестов в одном HTML-файле.
+pytest --html=log_report7.html --self-contained-html  
+
+(.venv) PS C:\Users\Админ\PycharmProjects\PythonProject2> pytest --html=log_report7.html --self-contained-html        
+========================= test session starts ==========================
+platform win32 -- Python 3.13.2, pytest-8.4.2, pluggy-1.6.0
+rootdir: C:\Users\Админ\PycharmProjects\PythonProject2
+plugins: html-4.1.1, metadata-3.1.1, xdist-3.8.0
+collected 4 items                                                       
+
+test_DZ09102025.py ...F                                           [100%]
+
+=============================== FAILURES =============================== 
+_______________________ TestLocators.test_xpath ________________________ 
+
+self = <test_DZ09102025.TestLocators object at 0x0000020591D8AD70>       
+
+    def test_xpath(self):
+        self.driver.get("https://natalexauto.com/")
+        locator_xpath = self.driver.find_element(By.XPATH, "//button[contains(@class, 'button_button__tY9TG')]")
+        locator_xpath.click()
+        time.sleep(2)
+>       ford_element = self.driver.find_element(By.XPATH, "/p[text()='FORD']")
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+test_DZ09102025.py:48:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _  
+.venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py:926: in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py:458: in execute
+    self.error_handler.check_response(response)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _  
+
+self = <selenium.webdriver.remote.errorhandler.ErrorHandler object at 0x0000020591E402B0>
+response = {'status': 404, 'value': '{"value":{"error":"no such element",
+"message":"no such element: Unable to locate element: {\...ff6d47cdbb8+11
+112]\\n\\tBaseThreadInitThunk [0x0x7ff8a3d2e8d7+23]\\n\\tRtlUserThreadStart [0x0x7ff8a43ac53c+44]\\n"}}'}
+
+    def check_response(self, response: dict[str, Any]) -> None:
+        """Checks that a JSON response from the WebDriver does not have an
+        error.
+
+        :Args:
+         - response - The JSON response from the WebDriver server as a dictionary
+           object.
+
+        :Raises: If the response contains an error message.
+        """
+        status = response.get("status", None)
+        if not status or status == ErrorCode.SUCCESS:
+            return
+        value = None
+        message = response.get("message", "")
+        screen: str = response.get("screen", "")
+        stacktrace = None
+        if isinstance(status, int):
+            value_json = response.get("value", None)
+            if value_json and isinstance(value_json, str):
+                try:
+                    value = json.loads(value_json)
+                    if isinstance(value, dict):
+                        if len(value) == 1:
+                            value = value["value"]
+                        status = value.get("error", None)
+                        if not status:
+                            status = value.get("status", ErrorCode.UNKNOWN_ERROR)
+                            message = value.get("value") or value.get("message")
+                            if not isinstance(message, str):
+                                value = message
+                                message = message.get("message") if isinstance(message, dict) else None
+                        else:
+                            message = value.get("message", None)
+                except ValueError:
+                    pass
+
+        exception_class: type[WebDriverException]
+        e = ErrorCode()
+        error_codes = [item for item in dir(e) if not item.startswith("__")]
+        for error_code in error_codes:
+            error_info = getattr(ErrorCode, error_code)
+            if isinstance(error_info, list) and status in error_info:    
+                exception_class = getattr(ExceptionMapping, error_code, WebDriverException)
+                break
+        else:
+            exception_class = WebDriverException
+
+        if not value:
+            value = response["value"]
+        if isinstance(value, str):
+            raise exception_class(value)
+        if message == "" and "message" in value:
+            message = value["message"]
+
+        screen = None  # type: ignore[assignment]
+        if "screen" in value:
+            screen = value["screen"]
+
+        stacktrace = None
+        st_value = value.get("stackTrace") or value.get("stacktrace")    
+        if st_value:
+            if isinstance(st_value, str):
+                stacktrace = st_value.split("\n")
+            else:
+                stacktrace = []
+                try:
+                    for frame in st_value:
+                        line = frame.get("lineNumber", "")
+                        file = frame.get("fileName", "<anonymous>")      
+                        if line:
+                            file = f"{file}:{line}"
+                        meth = frame.get("methodName", "<anonymous>")    
+                        if "className" in frame:
+                            meth = f"{frame['className']}.{meth}"        
+                        msg = "    at %s (%s)"
+                        msg = msg % (meth, file)
+                        stacktrace.append(msg)
+                except TypeError:
+                    pass
+        if exception_class == UnexpectedAlertPresentException:
+            alert_text = None
+            if "data" in value:
+                alert_text = value["data"].get("text")
+            elif "alert" in value:
+                alert_text = value["alert"].get("text")
+            raise exception_class(message, screen, stacktrace, alert_text)  # type: ignore[call-arg]  # mypy is not smart enough here
+>       raise exception_class(message, screen, stacktrace)
+E       selenium.common.exceptions.NoSuchElementException: Message: no su
+ch element: Unable to locate element: {"method":"xpath","selector":"/p[text()='FORD']"}
+E         (Session info: chrome=141.0.7390.123); For documentation on thi
+s error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+E       Stacktrace:
+E               GetHandleVerifier [0x0x7ff6d47de8e5+80021]
+E               GetHandleVerifier [0x0x7ff6d47de940+80112]
+E               (No symbol) [0x0x7ff6d456060f]
+E               (No symbol) [0x0x7ff6d45b8854]
+E               (No symbol) [0x0x7ff6d45b8b1c]
+E               (No symbol) [0x0x7ff6d460c927]
+E               (No symbol) [0x0x7ff6d45a95d1]
+E               (No symbol) [0x0x7ff6d45aa3f3]
+E               GetHandleVerifier [0x0x7ff6d4a9dc7d+2960429]
+E               GetHandleVerifier [0x0x7ff6d4a97f3a+2936554]
+E               GetHandleVerifier [0x0x7ff6d4ab8977+3070247]
+E               GetHandleVerifier [0x0x7ff6d47f83ce+185214]
+E               GetHandleVerifier [0x0x7ff6d47ffe1f+216527]
+E               GetHandleVerifier [0x0x7ff6d47e7b24+117460]
+E               GetHandleVerifier [0x0x7ff6d47e7cdf+117903]
+E               GetHandleVerifier [0x0x7ff6d47cdbb8+11112]
+E               BaseThreadInitThunk [0x0x7ff8a3d2e8d7+23]
+E               RtlUserThreadStart [0x0x7ff8a43ac53c+44]
+
+.venv\Lib\site-packages\selenium\webdriver\remote\errorhandler.py:232: NoSuchElementException
+- Generated html report: file:///C:/Users/%D0%90%D0%B4%D0%BC%D0%B8%D0%BD/PycharmProjects/PythonProject2/log_report7.html -
+======================= short test summary info ========================
+FAILED test_DZ09102025.py::TestLocators::test_xpath - selenium.common.exceptions.NoSuchElementException: Message: no such ...
+===================== 1 failed, 3 passed in 35.69s ===================== 
+
+Вывод: 
+1.отчет успешно создан: 
+- Generated html report: file:///C:/Users/%D0%90%D0%B4%D0%BC%D0%B8%D0%BD/PycharmProjects/PythonProject2/log_report7.html - указывает путь к файлу log_report7.html с отчетом
+
+2. >       ford_element = self.driver.find_element(By.XPATH, "/p[text()='FORD']")
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+test_DZ09102025.py:48: указывает на ошибку в строке - 48
+  
+
+19. Отключи захват вывода полностью и проанализируй, как отображаются сообщения в консоли.
+pytest -s
+
+(.venv) PS C:\Users\Админ\PycharmProjects\PythonProject2> pytest -s
+=============================================================================== test session starts ===============================================================================
+platform win32 -- Python 3.13.2, pytest-8.4.2, pluggy-1.6.0
+rootdir: C:\Users\Админ\PycharmProjects\PythonProject2
+plugins: html-4.1.1, metadata-3.1.1, xdist-3.8.0
+collected 4 items                                                                                                                                                                  
+
+test_DZ09102025.py Ввести текст в поле 'name' Какой-то текст!
+....
+
+=============================================================================== 4 passed in 38.04s ================================================================================ 
+(.venv) PS C:\Users\Админ\PycharmProjects\PythonProject2> 
+
+Анализ: 
+1. Захват вывода отключен.
+2. print() сообщения видны в консоли: test_DZ09102025.py Ввести текст в поле 'name' Какой-то текст!
+3. Если есть ошибки, то вывело бы и ошибки.
+4. Видно, что происходит внутри кода, видно какой текст должен выдать, при той или иной ошибке.
+
+20. Настрой запуск тестов с одновременным выводом логов и сохранением их в файл.
+pytest -v -s --log-cli-level=INFO --log-file-level=DEBUG --html=final_report.html --self-contained-html
+
+(.venv) PS C:\Users\Админ\PycharmProjects\PythonProject2> pytest -v -s --log-cli-level=INFO --log-file-level=DEBUG --html=final_report.html --self-contained-html
+=============================================================================== test session starts ===============================================================================
+platform win32 -- Python 3.13.2, pytest-8.4.2, pluggy-1.6.0 -- C:\Users\Админ\PycharmProjects\PythonProject2\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+metadata: {'Python': '3.13.2', 'Platform': 'Windows-11-10.0.26200-SP0', 'Packages': {'pytest': '8.4.2', 'pluggy': '1.6.0'}, 'Plugins': {'html': '4.1.1', 'metadata': '3.1.1', 'xdist': '3.8.0'}}
+rootdir: C:\Users\Админ\PycharmProjects\PythonProject2
+plugins: html-4.1.1, metadata-3.1.1, xdist-3.8.0
+collected 4 items                                                                                                                                                                  
+
+test_DZ09102025.py::TestLocators::test_name Ввести текст в поле 'name' Какой-то текст!
+PASSED
+test_DZ09102025.py::TestLocators::test_class_name PASSED
+test_DZ09102025.py::TestLocators::test_css_selector PASSED
+test_DZ09102025.py::TestLocators::test_xpath PASSED
+
+----------------------------- Generated html report: file:///C:/Users/%D0%90%D0%B4%D0%BC%D0%B8%D0%BD/PycharmProjects/PythonProject2/final_report.html ----------------------------- 
+========================================================================== 4 passed in 72.28s (0:01:12) ==========================================================================

@@ -1,0 +1,386 @@
+<!--
+  max-elements.html
+  Пример HTML-файла с максимально разными элементами и множеством атрибутов.
+  
+-->
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Демонстрационный HTML с множеством элементов и атрибутов">
+  <title>Демо — Множество HTML-элементов</title>
+  <style>
+    :root{--accent:#0a74da;--muted:#666}
+    body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial;line-height:1.45;margin:1rem}
+    header, footer{padding:0.6rem 1rem;background:#f7f7f7;border-radius:8px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin-top:1rem}
+    .card{padding:1rem;border:1px solid #e6e6e6;border-radius:8px}
+    .btn{display:inline-block;padding:0.45rem 0.75rem;border-radius:6px;border:1px solid var(--accent);background:linear-gradient(#fff,#eaf6ff);cursor:pointer}
+    [hidden]{display:none}
+    table{width:100%;border-collapse:collapse}
+    th,td{border:1px solid #ddd;padding:0.4rem;text-align:left}
+    caption{font-weight:bold;padding:0.4rem}
+    .mono{font-family:Menlo,Monaco,monospace;background:#f4f4f4;padding:0.3rem;border-radius:4px}
+  </style>
+</head>
+<body data-generated-by="gpt-5" class="demo" lang="ru">
+
+<header id="main-header" role="banner" aria-label="Шапка демо" data-section="header" lang="ru">
+  <h1 id="site-title" title="Демо-страница с множеством элементов" tabindex="0">Демо — Максимум HTML-элементов</h1>
+  <nav id="primary-nav" role="navigation" aria-labelledby="nav-label" data-nav="primary" hidden="false">
+    <span id="nav-label" class="mono">Навигация</span>
+    <ul class="nav-list" role="menubar" aria-hidden="false" data-list="top">
+      <li role="none"><a href="#main" role="menuitem" aria-current="true" tabindex="0" rel="noopener noreferrer" hreflang="ru" title="Перейти к основному разделу">Главная</a></li>
+      <li role="none"><a href="#forms" role="menuitem" tabindex="0" title="Формы" data-link="forms">Формы</a></li>
+      <li role="none"><a href="#media" role="menuitem" tabindex="0" title="Медиа" data-link="media">Медиа</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main" role="main" aria-labelledby="site-title">
+
+  <article itemscope itemtype="http://schema.org/Article" data-article="demo" aria-labelledby="article-title">
+    <h2 id="article-title" itemprop="headline" title="Заголовок статьи" lang="ru">Статья-пример</h2>
+    <p class="lead" itemprop="description" data-note="lead" dir="ltr" spellcheck="true">Ниже собраны самые распространённые HTML-элементы: формы, таблицы, мультимедиа, интерактивные элементы и семантика.</p>
+
+    <section id="forms" aria-labelledby="forms-title" data-section="forms">
+      <h3 id="forms-title" title="Секция с формами">Формы и элементы ввода</h3>
+
+      <form id="complex-form" action="/submit" method="post" enctype="multipart/form-data" autocomplete="on" novalidate data-form="complex" aria-labelledby="form-title" data-tracking-id="frm-001">
+        <h4 id="form-title" class="mono">Форма: полный набор полей</h4>
+
+        <!-- Текстовое поле -->
+        <label for="username">Логин (text)</label>
+        <input id="username" name="username" type="text" placeholder="имя_пользователя" required minlength="3" maxlength="32" pattern="^[A-Za-z0-9_\-]+$" autocomplete="username" aria-required="true" data-qa="input-username" value="user_example" title="Введите логин">
+
+        <!-- Пароль -->
+        <label for="password">Пароль (password)</label>
+        <input id="password" name="password" type="password" placeholder="пароль" required minlength="8" aria-describedby="pwd-help" autocomplete="current-password" data-strength="medium" title="Пароль: минимум 8 символов">
+        <div id="pwd-help" class="mono">Подсказка: используйте буквы и цифры.</div>
+
+        <!-- Email несколько -->
+        <label for="emails">Email (email; multiple)</label>
+        <input id="emails" name="emails" type="email" placeholder="first@mail.example, second@mail.example" multiple autocomplete="email" aria-label="почтовые адреса" data-role="emails">
+
+        <!-- Номер -->
+        <label for="age">Возраст (number)</label>
+        <input id="age" name="age" type="number" min="0" max="150" step="1" value="30" aria-valuemin="0" aria-valuemax="150" data-unit="years">
+
+        <!-- Диапазон -->
+        <label for="volume">Громкость (range)</label>
+        <input id="volume" name="volume" type="range" min="0" max="100" step="5" value="70" aria-label="громкость" data-control="slider">
+
+        <!-- Цвет -->
+        <label for="favcolor">Любимый цвет (color)</label>
+        <input id="favcolor" name="favcolor" type="color" value="#0a74da" title="Выберите цвет" data-colorpicker="true">
+
+        <!-- Дата и время -->
+        <label for="meeting">Встреча (datetime-local)</label>
+        <input id="meeting" name="meeting" type="datetime-local" min="2025-01-01T08:00" max="2030-12-31T18:00" step="60" value="2025-10-01T10:30" aria-describedby="meeting-desc">
+        <small id="meeting-desc">Выберите дату и время встречи.</small>
+
+        <!-- Поле для файлов -->
+        <label for="attachments">Файлы (file; multiple; accept)</label>
+        <input id="attachments" name="attachments" type="file" multiple accept="image/*,application/pdf" aria-label="Загрузите файлы" data-max-files="5">
+
+        <!-- Скрытое поле -->
+        <input type="hidden" name="csrf_token" value="abc123xyz" data-meta="security">
+
+        <!-- Чекбокс -->
+        <label>
+          <input id="subscribe" name="subscribe" type="checkbox" checked aria-checked="true" data-default="true"> Подписаться на новости
+        </label>
+
+        <!-- Радио -->
+        <div role="radiogroup" aria-labelledby="color-choice" data-group="colors">
+          <div id="color-choice">Выберите цвет темы</div>
+          <label><input name="theme" type="radio" value="light" aria-checked="false"> Светлая</label>
+          <label><input name="theme" type="radio" value="dark" checked aria-checked="true"> Тёмная</label>
+        </div>
+
+        <!-- Select -->
+        <label for="country">Страна (select)</label>
+        <select id="country" name="country" required size="1" autocomplete="country" data-select="country">
+          <option value="" disabled selected>Выберите...</option>
+          <optgroup label="Европа">
+            <option value="ru" selected>Россия</option>
+            <option value="de">Германия</option>
+          </optgroup>
+          <optgroup label="Америка">
+            <option value="us">США</option>
+            <option value="br">Бразилия</option>
+          </optgroup>
+        </select>
+
+        <!-- Textarea -->
+        <label for="bio">Коротко о себе (textarea)</label>
+        <textarea id="bio" name="bio" rows="4" cols="40" placeholder="Расскажите немного..." maxlength="500" spellcheck="true" wrap="soft" aria-label="биография"></textarea>
+
+        <!-- Datalist автодополнение -->
+        <label for="browser">Браузер (datalist)</label>
+        <input id="browser" name="browser" list="browsers" placeholder="Chrome, Firefox, ..." autocomplete="off">
+        <datalist id="browsers">
+          <option value="Chrome">
+          <option value="Firefox">
+          <option value="Safari">
+          <option value="Edge">
+        </datalist>
+<div id="drop-zone" data-status="idle">
+    Drop PDF Here
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const dz = document.getElementById("drop-zone");
+
+    dz.addEventListener("dragover", e => e.preventDefault());
+    dz.addEventListener("dragenter", e => e.preventDefault());
+
+    dz.addEventListener("drop", e => {
+        e.preventDefault();
+        const files = e.dataTransfer.files;
+        if (files.length > 0) {
+            console.log("PDF dropped:", files[0].name);
+            dz.setAttribute("data-status", "uploaded");
+        }
+    });
+});
+</script>
+
+        <!-- Кнопки -->
+        <div style="margin-top:.6rem">
+          <button id="submit-btn" class="btn" type="submit" name="action" value="save" aria-pressed="false" formaction="/save" formmethod="post" formtarget="_self" title="Отправить форму">Сохранить</button>
+
+          <button id="reset-btn" class="btn" type="reset" name="action" value="reset" aria-pressed="false" title="Сбросить">Сброс</button>
+
+          <button id="upload-btn" class="btn" type="button" data-action="upload" aria-label="Загрузить файлы" title="Вызвать загрузку">Загрузить</button>
+        </div>
+
+        <!-- output/progress/meter -->
+        <div style="margin-top:.6rem">
+          <label for="progress">Прогресс:</label>
+          <progress id="progress" value="32" max="100" aria-valuemin="0" aria-valuemax="100"></progress>
+
+          <label for="cpu">Загрузка CPU:</label>
+          <meter id="cpu" value="0.72" min="0" max="1" low="0.3" high="0.9" optimum="0.5" title="Нагрузка на CPU">72%</meter>
+
+          <output id="calc-result" name="calc" for="age volume" aria-live="polite">Результат появится здесь</output>
+        </div>
+
+      </form>
+
+    </section>
+
+    <section id="media" aria-labelledby="media-title" data-section="media">
+      <h3 id="media-title">Мультимедиа и графика</h3>
+
+      <!-- Inline SVG -->
+      <figure class="card" data-figure="svg">
+        <svg id="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60" role="img" aria-labelledby="logoTitle logoDesc" preserveAspectRatio="xMidYMid meet">
+          <title id="logoTitle">Логотип демо</title>
+          <desc id="logoDesc">Прямоугольник и текст, пример SVG</desc>
+          <defs>
+            <linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#0a74da"/><stop offset="1" stop-color="#66b3ff"/></linearGradient>
+          </defs>
+          <rect x="0" y="0" width="200" height="60" rx="8" fill="url(#g)"></rect>
+          <text x="12" y="38" font-size="20" font-family="sans-serif" fill="#fff">SVG Demo</text>
+        </svg>
+        <figcaption>SVG-логотип с градиентом и описанием.</figcaption>
+      </figure>
+
+      <!-- Picture + img (data URI) -->
+      <figure class="card" data-figure="picture">
+        <picture>
+          <source srcset="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='100'><rect width='300' height='100' fill='%23fdebd3'/><text x='15' y='60' font-size='20' fill='%23000'>Picture Source</text></svg>" media="(min-width:600px)">
+          <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='100'><rect width='300' height='100' fill='%23e8f8ff'/><text x='15' y='60' font-size='20' fill='%23000'>Fallback Image</text></svg>" alt="Inline image" width="300" height="100" loading="lazy" decoding="async" title="Инлайн изображение">
+        </picture>
+        <figcaption>Picture + inline data-URI image.</figcaption>
+      </figure>
+
+      <!-- Video with srcdoc iframe as safe demo (video source omitted) -->
+      <div class="card" data-media="video">
+        <video id="demo-video" controls preload="metadata" width="320" height="180" playsinline muted loop poster="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='180'><rect width='320' height='180' fill='%23ddd'/><text x='20' y='90' font-size='16'>Видео-заглушка</text></svg>" aria-label="Демо видео" title="Демо видео">
+          <!-- источники можно добавить локально -->
+          <source src="" type="video/mp4">
+          <track kind="captions" srclang="ru" label="Русский" default>
+          Тег video не поддерживается вашим браузером.
+        </video>
+      </div>
+
+      <!-- Audio -->
+      <div class="card" data-media="audio">
+        <audio id="demo-audio" controls preload="none" src="" aria-label="Демо аудио" title="Аудио-плеер">
+          Ваш браузер не поддерживает audio.
+        </audio>
+      </div>
+
+      <!-- Canvas -->
+      <div class="card" data-canvas="demo">
+        <canvas id="myCanvas" width="300" height="120" role="img" aria-label="Холст с отрисовкой" data-info="test-canvas"></canvas>
+      </div>
+
+    </section>
+
+    <section id="tables" aria-labelledby="tables-title" data-section="tables">
+      <h3 id="tables-title">Таблицы и семантика</h3>
+
+      <table id="data-table" role="table" aria-describedby="table-desc" data-table="demo" summary="Пример таблицы с заголовками">
+        <caption id="table-desc">Мини-таблица</caption>
+        <colgroup>
+          <col span="1" style="width:40%">
+          <col span="1">
+          <col span="1">
+        </colgroup>
+        <thead>
+          <tr>
+            <th scope="col">Имя</th>
+            <th scope="col">Роль</th>
+            <th scope="col">Активен</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Алексей</td>
+            <td data-role="admin">Админ</td>
+            <td aria-label="активность пользователя">Да</td>
+          </tr>
+          <tr>
+            <td>Мария</td>
+            <td data-role="editor">Редактор</td>
+            <td aria-label="активность пользователя">Нет</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr><td colspan="3">Количество записей: 2</td></tr>
+        </tfoot>
+      </table>
+
+    </section>
+
+    <section id="extras" aria-labelledby="extras-title" data-section="extras">
+      <h3 id="extras-title">Дополнительные интерактивные элементы</h3>
+
+      <!-- Details / summary -->
+      <details id="faq-1" open class="card" data-faq="1" aria-labelledby="faq1-sum">
+        <summary id="faq1-sum" role="button" aria-expanded="true" tabindex="0">Часто задаваемый вопрос: что это?</summary>
+        <p>Это демонстрация тега &lt;details&gt; с атрибутами.</p>
+      </details>
+
+      <!-- Dialog (современный) -->
+      <dialog id="infoDialog" open aria-modal="true" role="dialog" aria-labelledby="dlg-title" data-dialog="demo">
+        <h4 id="dlg-title">Диалог</h4>
+        <p>Это <code>&lt;dialog&gt;</code> с атрибутом open. Закройте через JS.</p>
+        <menu>
+          <button id="closeDlg" type="button">Закрыть</button>
+        </menu>
+      </dialog>
+
+      <!-- Template to clone -->
+      <template id="person-template">
+        <article class="card" data-template-item>
+          <h4 class="mono">Шаблон: Персона</h4>
+          <p><strong>Имя:</strong> <span class="name" data-prop="name"></span></p>
+        </article>
+      </template>
+
+      <!-- Iframe с srcdoc -->
+      <div class="card">
+        <iframe id="frame1" srcdoc="<p>Встроенный документ (iframe srcdoc).</p>" title="Пример встроенного фрейма" sandbox="allow-scripts" width="100%" height="80" data-iframe="srcdoc"></iframe>
+      </div>
+
+      <!-- Map & area -->
+      <figure class="card">
+        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='120'><rect width='320' height='120' fill='%23efe'/><text x='10' y='60' font-size='14'>Карта с зонами</text></svg>" usemap="#map1" alt="Демо карта" width="320" height="120">
+        <map name="map1" id="map1">
+          <area shape="rect" coords="0,0,160,120" href="#" alt="Левая зона" title="Левая"> 
+          <area shape="rect" coords="160,0,320,120" href="#" alt="Правая зона" title="Правая">
+        </map>
+        <figcaption>Изображение с областями (map & area).</figcaption>
+      </figure>
+
+      <!-- Semantic inline elements -->
+      <p class="card">Текст с <mark data-high="1">выделением</mark>, <abbr title="HyperText Markup Language">HTML</abbr>, <time datetime="2025-10-06">6 октября 2025</time>, <code class="mono">console.log()</code> и <kbd>Ctrl</kbd>+<kbd>C</kbd>.</p>
+
+      <!-- Definition list -->
+      <dl class="card">
+        <dt>HTML</dt>
+        <dd>Язык разметки.</dd>
+        <dt>CSS</dt>
+        <dd>Стилизация документа.</dd>
+      </dl>
+
+      <!-- Misc elements -->
+      <blockquote cite="https://example.com" class="card">«Это цитата для демонстрации тега blockquote»</blockquote>
+
+      <q cite="https://example.com" class="card">Краткая цитата в тексте</q>
+
+      <small class="card">Сноска: некоторые элементы могут не отображаться без JS.</small>
+
+      <div class="card" contenteditable="true" role="textbox" aria-label="Редактируемая область" tabindex="0" spellcheck="true" data-editable="true">Редактируемая область — можно писать текст.</div>
+
+    </section>
+
+  </article>
+
+</main>
+
+<footer role="contentinfo" aria-label="Футер" data-section="footer">
+  <p>Файл: <span class="mono">max-elements.html</span> — демо множество HTML-элементов. Сгенерировано: GPT-5 Thinking mini.</p>
+</footer>
+
+<script>
+  // Небольшая логика для демонстрации некоторых data-атрибутов и canvas
+  (function(){
+    // Canvas: простая отрисовка
+    try{
+      const c = document.getElementById('myCanvas');
+      if(c && c.getContext){
+        const ctx = c.getContext('2d');
+        ctx.fillStyle = '#0a74da';
+        ctx.fillRect(0,0,c.width,c.height);
+        ctx.fillStyle = '#fff';
+        ctx.font = '16px sans-serif';
+        ctx.fillText('Canvas Demo', 10, 30);
+      }
+    }catch(e){console.warn('Canvas error', e)}
+
+    // Клик по upload-btn имитирует выбор файла
+    document.getElementById('upload-btn')?.addEventListener('click', function(){
+      const f = document.getElementById('attachments');
+      f?.click();
+    });
+
+    // Пример клонирования шаблона
+    const tpl = document.getElementById('person-template');
+    if(tpl && 'content' in tpl){
+      const clone = tpl.content.cloneNode(true);
+      clone.querySelector('.name').textContent = 'Валентина';
+      document.body.appendChild(clone);
+    }
+
+    // Dialog close
+    document.getElementById('closeDlg')?.addEventListener('click', function(){
+      const dlg = document.getElementById('infoDialog');
+      if(dlg && typeof dlg.close === 'function') dlg.close(); else dlg.setAttribute('open','false');
+    });
+
+    // Простой расчет для output
+    const age = document.getElementById('age');
+    const vol = document.getElementById('volume');
+    const out = document.getElementById('calc-result');
+    function updateCalc(){
+      if(age && vol && out){
+        out.value = `Возраст ${age.value}, громкость ${vol.value}`;
+        out.textContent = out.value;
+      }
+    }
+    age?.addEventListener('input', updateCalc);
+    vol?.addEventListener('input', updateCalc);
+    updateCalc();
+
+  })();
+</script>
+
+</body>
+</html>

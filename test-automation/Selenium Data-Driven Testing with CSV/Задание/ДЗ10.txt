@@ -1,0 +1,47 @@
+Часть 1. Текстовые поля и input
+Проверка типа и placeholder через CSV
+Создать CSV с колонками: element_id, expected_type, expected_placeholder.
+Написать тест, который проверяет каждый элемент формы по этим данным.
+
+Проверка обязательных полей через CSV
+CSV: element_id, is_required (true/false).
+Тест проверяет, что поля формы имеют/не имеют атрибут required.
+
+Проверка min/max/step для числовых полей
+CSV: element_id, min_value, max_value, step.
+Тест проверяет атрибуты min, max и step для input[type=number/range].
+
+Проверка multiple email через CSV
+CSV: element_id, emails.
+Тест заполняет поле и проверяет значение после ввода нескольких email.
+
+Часть 2. Кнопки и действия
+Проверка кнопок по CSV
+CSV: button_id, expected_text, expected_type, aria_pressed.
+Тест проверяет текст кнопки, type и состояние aria-pressed.
+
+Проверка кнопок на видимость и доступность
+CSV: button_id, is_displayed, is_enabled.
+Тест проверяет, что кнопка видима и активна.
+
+Проверка reset кнопки через CSV
+CSV: input_id, initial_value.
+Тест изменяет значение поля, нажимает reset и проверяет, что поле вернулось к initial_value.
+
+Часть 3. Таблицы
+Проверка значений таблицы через CSV
+CSV: row_index, col_index, expected_text.
+Тест проверяет содержимое каждой ячейки таблицы.
+
+Проверка количества строк и колонок таблицы
+CSV: table_id, expected_rows, expected_columns.
+Тест проверяет размеры таблицы.
+
+Часть 4. Select / Option
+Проверка выбранных опций select через CSV
+CSV: select_id, expected_value.
+Тест проверяет, что по умолчанию выбрана правильная опция.
+
+Проверка всех доступных опций select через CSV
+CSV: select_id, option_index, expected_text, expected_value.
+Тест проверяет текст и значение каждой опции.

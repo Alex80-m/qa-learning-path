@@ -1,0 +1,34 @@
+CREATE TRIGGER trg_insert_Artist
+AFTER INSERT ON Artist
+BEGIN
+    SELECT 'Добавлен артист: ' || NEW.Name;
+END;
+
+CREATE TRIGGER trg_Artist_require_name
+BEFORE UPDATE ON Artist
+FOR EACH ROW
+WHEN NEW.Name IS NULL OR trim(NEW.Name) = ''
+BEGIN
+    SELECT RAISE(ABORT, 'Введите Name!');
+END;
+
+CREATE Trigger trg_Artist_ArtistId_DELETE 
+After DELETE on Artist
+Begin 
+	Select 'Удален Artist с id: ' || old.ArtistId;
+END;
+
+CREATE Trigger rtg_prevent_artist_changeName
+BEFORE UPDATE ON Artist
+WHEN OLD.Name != NEW.Name
+BEGIN
+    SELECT RAISE(ABORT, 'Изменение Name запрещено!');
+END;
+
+
+CREATE TRIGGER trg_check_Artist_name
+BEFORE INSERT ON Artist
+WHEN LENGTH(NEW.Name) < 3
+BEGIN
+    SELECT RAISE(ABORT, 'Название Name должно быть > 3 символов');
+END;

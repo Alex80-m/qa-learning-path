@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>File Upload Test</title>
+    <style>
+        #dropZone {
+            width: 300px;
+            height: 200px;
+            border: 2px dashed #ccc;
+            padding: 20px;
+            text-align: center;
+        }
+        .dragover {
+            border-color: #0066cc;
+            background-color: #e6f2ff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Drag and Drop File Upload</h1>
+    <div id="dropZone">Перетащите файлы сюда</div>
+    <div id="fileList"></div>
+
+    <script>
+        const dropZone = document.getElementById('dropZone');
+        const fileList = document.getElementById('fileList');
+
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropZone.addEventListener(eventName, (e) => {
+                e.preventDefault();
+                dropZone.classList.add('dragover');
+            });
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropZone.addEventListener(eventName, (e) => {
+                e.preventDefault();
+                dropZone.classList.remove('dragover');
+
+                if (eventName === 'drop') {
+                    const files = e.dataTransfer.files;
+                    displayFiles(files);
+                }
+            });
+        });
+
+        function displayFiles(files) {
+            fileList.innerHTML = '<h3>Загруженные файлы:</h3>';
+            for (let file of files) {
+                const div = document.createElement('div');
+                div.textContent = `${file.name} (${file.type}, ${file.size} байт)`;
+                fileList.appendChild(div);
+            }
+            // Добавляем атрибут для проверки в тестах
+            dropZone.setAttribute('data-files-count', files.length);
+        }
+    </script>
+</body>
+</html>

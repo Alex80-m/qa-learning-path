@@ -1,0 +1,140 @@
+Select p.first_name, p.last_name, f.flight_number
+From Passengers P inner join tickets T
+on P.passenger_id = T.passenger_id
+inner join Flights F
+on f.flight_id = T.flight_id
+ 
+Select p.first_name, p.last_name, destination
+From Passengers P inner join tickets T
+on p.passenger_id = t.passenger_id
+inner join Flights F
+on f.flight_id = T.flight_id
+where destination = 'Paris'
+ 
+Select flight_number, first_name, last_name
+From tickets T inner join Passengers P
+on T.passenger_id = P.passenger_id
+inner join Flights F
+on f.flight_id = T.flight_id
+
+Select last_name, flight_id
+From passengers p
+Left join tickets t on p.passenger_id = t.passenger_id
+Where t.passenger_id IS NULL
+
+Select flight_number, count(t.ticket_id) as 'Кол-во билетов'
+From Flights F
+Left join Tickets T
+on F.flight_id = T.flight_id
+Group by flight_number
+
+Select last_name, first_name, flight_id, class
+From Passengers P
+Inner join Tickets T
+on p.passenger_id = t.passenger_id
+Where class = 'Business'
+
+Select T.*, gender
+From Tickets T
+Inner join Passengers P
+on T.passenger_id=P.passenger_id
+Where gender = 'Male'
+
+Select F.*, ticket_id
+From Flights F
+Left join Tickets T
+on F.flight_id = T.flight_id
+Where T.ticket_id is null
+
+Select last_name, first_name, max(price) as 'Самый дорогой билет'
+From Passengers P
+Inner join Tickets T
+on P.passenger_id=T.passenger_id
+Group by last_name, first_name
+
+Select last_name, F.* 
+From Flights F
+Inner join Tickets T
+on F.flight_id = T.flight_id
+Inner join Passengers P
+on P.passenger_id = T.passenger_id
+Where last_name = 'Miller'
+
+Select first_name, last_name, F.* 
+From Flights F
+Inner join Tickets T
+on F.flight_id = T.flight_id
+Inner join Passengers P
+on P.passenger_id = T.passenger_id
+Where departure_date > '20230907'
+
+Select first_name, last_name, flight_number, count(T.ticket_id) as 'Кол-во билетов'
+From Flights F
+Left join Tickets T
+on F.flight_id = T.flight_id
+Inner join Passengers P
+on P.passenger_id = T.passenger_id
+Group by first_name, last_name, flight_number, T.ticket_id
+Having count(T.flight_id) > 1
+
+Select F.flight_id, origin, destination, count(Distinct t.passenger_id) as 'Кол-во пассажиров'
+From Flights F
+Left join Tickets T
+on F.flight_id = T.flight_id
+Group by F.flight_id, origin, destination
+order by F.flight_id
+
+
+Select
+    f.flight_number,
+    p1.first_name AS passenger1_first,
+    p1.last_name AS passenger1_last,
+    p2.first_name AS passenger2_first,
+    p2.last_name AS passenger2_last
+From Tickets t1
+Join Tickets t2 on t1.flight_id = t2.flight_id AND t1.passenger_id < t2.passenger_id
+Join Passengers p1 on t1.passenger_id = p1.passenger_id
+Join Passengers p2 on t2.passenger_id = p2.passenger_id
+Join Flights f on t1.flight_id = f.flight_id
+Order by f.flight_number
+
+Select P.passenger_id, P.first_name, P.last_name, count(t.ticket_id) as 'Кол-во билетов'
+From Passengers P
+Left join Tickets T
+on P.passenger_id = T.passenger_id
+Group by P.passenger_id, first_name, last_name
+Order by count(ticket_id) desc, p.last_name, p.first_name
+
+Select F.flight_number, P.gender
+From Flights F
+Join Tickets T
+on F.flight_id = T.flight_id
+Join Passengers P
+on P.passenger_id = T.passenger_id
+Where gender = 'Female'
+
+Select first_name, last_name, T.*
+From Passengers P
+Join Tickets T 
+on P.passenger_id = T.passenger_id
+Order by t.price desc
+
+Select first_name, last_name, T.*
+From Passengers P
+Join Tickets T
+on P.passenger_id = T.passenger_id
+Where price > (SELECT AVG(price) FROM tickets)
+
+Select first_name, last_name, seat_number
+From Passengers P
+Left join Tickets T
+on P.passenger_id = T.passenger_id
+Where T.seat_number is null or T.seat_number = ' '
+
+Select first_name, last_name, destination
+From Passengers P
+Join Tickets T 
+on P.passenger_id = T.passenger_id
+Join Flights F
+on F.flight_id = T.flight_id
+Where destination Like 'B%'

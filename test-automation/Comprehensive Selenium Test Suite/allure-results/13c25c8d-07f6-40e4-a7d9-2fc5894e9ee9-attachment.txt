@@ -1,0 +1,1 @@
+У <html> есть data-theme='light

@@ -1,0 +1,5 @@
+button_id,is_displayed,is_enabled
+submit-btn,true,true
+reset-btn,true,true
+upload-btn,true,true
+closeDlg,true,true

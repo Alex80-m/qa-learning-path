@@ -1,0 +1,79 @@
+/****** Script for SelectTopNRows command from SSMS  ******/
+SELECT *
+  FROM Flights
+  where origin = 'Moscow'
+ 
+  SELECT *
+  FROM Passengers
+  where gender = 'Female'
+ 
+   SELECT *
+  FROM Tickets
+  where price > 200
+ 
+  SELECT *
+  FROM Flights
+  where destination = 'Sydney'
+ 
+  SELECT *
+  FROM Passengers
+  where birthdate > '1995-01-01'
+ 
+  SELECT *
+  FROM Tickets    
+  where class = 'Business'
+ 
+  SELECT *
+  FROM Flights
+  where departure_date >= '20230901' and departure_date <= '20230930' 
+  /*** только в таком формате (даты) выдало ответ. В остальных случаях выдает ошибку. ***/
+
+  SELECT *
+  FROM Passengers
+  where last_name = 'Miller'
+
+  SELECT *
+  FROM Tickets    
+  where flight_id = 203
+
+  SELECT *
+  FROM Passengers
+  where gender = 'Male' and birthdate < '1990-01-01'
+
+  SELECT *
+  FROM Flights
+  where destination !='London'
+
+ SELECT *
+  FROM Tickets    
+  where price < 200
+ 
+ SELECT *
+  FROM Passengers
+  where first_name like 'A%'
+
+  SELECT *
+  FROM Passengers
+  where birthdate >= '1995-01-01' and birthdate <= '1995-12-31'
+
+  SELECT *
+  FROM Tickets
+  where seat_number like 'B%'
+
+  SELECT *
+  FROM Flights
+  where departure_date > '20230906'
+  /*** только в таком формате (даты) выдало верный ответ.
+  в формате '2023-09-06' выдает весь список ***/
+
+  SELECT *
+  FROM Passengers
+  where gender = 'Male' and first_name = 'Alexander'
+
+  SELECT *
+  FROM Tickets    
+  where class = 'Economy' and price > 200 
+
+  SELECT *
+  FROM Flights
+  where origin = 'Berlin' and destination = 'Paris'

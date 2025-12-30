@@ -1,0 +1,1 @@
+У textarea#bio — пустой value и есть placeholder

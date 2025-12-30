@@ -1,0 +1,66 @@
+{
+	"id": "32a2cde4-5182-4d6f-9b3e-ab6b3946781b",
+	"name": "Swagger Petstore",
+	"timestamp": "2025-02-14T10:41:51.634Z",
+	"collection_id": "41760730-c7ded1e0-1db5-4c8f-9b99-d4c5e43cb1b7",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 0,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2025-02-14T10:41:49.827Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "22d4a51f-98c3-4d95-836f-d7c49d2876e8",
+			"name": "Add a new pet to the store",
+			"url": "https://petstore.swagger.io/v2/pet",
+			"time": 993,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				993
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "fd781cfa-32cb-44e2-94f6-33c4c55988b1",
+			"name": "Find pet by ID",
+			"url": "https://petstore.swagger.io/v2/pet/23",
+			"time": 217,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				217
+			],
+			"allTests": [
+				{}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 1210,
+	"collection": {
+		"requests": [
+			{
+				"id": "22d4a51f-98c3-4d95-836f-d7c49d2876e8",
+				"method": "POST"
+			},
+			{
+				"id": "fd781cfa-32cb-44e2-94f6-33c4c55988b1",
+				"method": "GET"
+			}
+		]
+	}
+}

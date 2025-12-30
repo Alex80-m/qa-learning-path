@@ -1,0 +1,5 @@
+button_id,expected_text,expected_type,aria_pressed
+submit-btn,Сохранить,submit,false
+reset-btn,Сброс,reset,false
+upload-btn,Загрузить,button,
+closeDlg,Закрыть,button,
